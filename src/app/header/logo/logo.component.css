@@ -1,0 +1,6 @@
+div:nth-child(1){
+  background: url("../../../assets/smallLogo.png") no-repeat;
+  height: 141px;
+  width: 640px;
+  margin-left: 80px;
+}
