@@ -1,3 +1,13 @@
 <div class="container">
-  <app-header></app-header>
+  <div class="row">
+    <app-header (featureSelected)="onNav($event)"></app-header>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <app-mix-tape
+        *ngIf="lodedFeature === 'mixtape'"></app-mix-tape>
+      <app-arrivel
+        *ngIf="lodedFeature === 'arrivel'"></app-arrivel>
+    </div>
+  </div>
 </div>
