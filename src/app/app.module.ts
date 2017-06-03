@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -23,7 +24,25 @@ import { ExploreComponent } from './explore/explore.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+      {
+        path: 'mix-tape',
+        component: MixTapeComponent
+      },
+      {
+        path: 'arrivel',
+        component: ArrivelComponent
+      },
+      {
+        path: 'about',
+        component: AboutComponent
+      },
+      {
+        path: 'explore',
+        component: ExploreComponent
+      }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
