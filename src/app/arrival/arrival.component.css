@@ -1,15 +1,14 @@
 #content {
-  /*margin-left: 70px;*/
   position:relative;
   /*width:900px;*/
   height:500px;
-  /*padding: 40px;*/
+  padding: 0 10px 0 20px;
 }
 #content:before, #content:after, #content>:first-child:before, #content>:first-child:after {
   position:absolute;
   width:60px;
   height: 60px;
-  border:red solid; /* or whatever colour */
+  border: #ff0000 solid; /* or whatever colour */
   /*border-style:solid; !* or whatever style *!*/
   content: ' ';
 }
@@ -35,13 +34,29 @@
 }
 .mixes{
   display: inline-block;
-  border: 1px solid white;
-  width: 110px;
-  height: 110px;
-  margin: 34px 34px 14px 34px;
+  width: 170px;
+  height: 113px;
+  margin: 20px 12px 14px 0;
 }
 .col-md-4 p{
   padding: 50px;
-  border:1px solid red;
+  border:1px solid #ff0000;
   height: 500px;
+}
+.length{
+  float: right;
+  color: #ff0000;
+}
+span:nth-child(1){
+  color: #ffffff;
+}
+.mixDetails{
+  margin-top: 5px;
+  background: #08194d;
+  opacity: 0.6;
+}
+.mixBackground{
+  display: block;
+  background: url("../../assets/underMix.png") no-repeat;
+  height: 10px;
 }

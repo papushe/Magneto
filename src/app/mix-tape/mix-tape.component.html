@@ -1,19 +1,18 @@
-<p>
-  mix-tape works!
-  mix-tape works!
-  mix-tape works!
-  mix-tape works!
-  mix-tape works!
-  mix-tape works!
-  mix-tape works!
-  mix-tape works!
-  mix-tape works!
-  mix-tape works!
-  mix-tape works!
-  mix-tape works!
-  mix-tape works!
-  mix-tape works!
-  mix-tape works!
-  mix-tape works!
-  mix-tape works!
-</p>
+<div class="col-md-10" id="content">
+
+</div>
+
+<div class="col-md-2">
+  <h4>RELETED_MIX</h4>
+  <ul>
+    <li  *ngFor="let mix of allMixes | slice:0:3" class="mixes">
+        <img [src]="mix.img_src">
+        <p>
+          <span>{{mix.mix_name}}</span>
+          <span class="length">{{convertMillisecondsToDigitalClock(mix.length)}}</span>
+          <span class="mixBackground"></span>
+        </p>
+
+    </li>
+  </ul>
+</div>

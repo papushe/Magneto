@@ -1,19 +1,14 @@
 <div class="col-md-8" id="content">
-  <div class="mixes">This is some content</div>
-  <div class="mixes">This is some content</div>
-  <div class="mixes">This is some content</div>
-  <div class="mixes">This is some content</div>
-  <div class="mixes">This is some content</div>
-  <div class="mixes">This is some content</div>
-  <div class="mixes">This is some content</div>
-  <div class="mixes">This is some content</div>
-  <div class="mixes">This is some content</div>
-  <div class="mixes">This is some content</div>
-  <div class="mixes">This is some content</div>
-  <div class="mixes">This is some content</div>
-  <div class="mixes">This is some content</div>
-  <div class="mixes">This is some content</div>
-  <div class="mixes">This is some content</div>
+  <ul>
+    <li  *ngFor="let mix of allMixes" class="mixes">
+      <img [src]="mix.img_src">
+      <p class="mixDetails">
+        <span>{{mix.mix_name}}</span>
+        <span class="length">{{convertMillisecondsToDigitalClock(mix.length)}}</span>
+        <span class="mixBackground"></span>
+      </p>
+    </li>
+  </ul>
 </div>
 <div class="col-md-4">
   <p></p>

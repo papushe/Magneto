@@ -1,3 +1,31 @@
-p{
+h4{
   color: white;
+  letter-spacing: 5px;
+  border-bottom: 1px dotted #e82334;
+  padding: 0 0 5px 0;
+  width: 170px;
+}
+li{
+  /*margin-bottom: 5px;*/
+  width: 170px;
+}
+img{
+  display: block;
+}
+.length{
+  float: right;
+  color: #e82334;
+}
+span:nth-child(1){
+  color: #ffffff;
+}
+p{
+  margin-top: 5px;
+  background: #08194d;
+  opacity: 0.6;
+}
+.mixBackground{
+  display: block;
+  background: url("../../assets/underMix.png") no-repeat;
+  height: 10px;
 }
