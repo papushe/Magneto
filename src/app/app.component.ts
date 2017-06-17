@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  lodedFeature = 'arrivel';
+  lodedFeature = 'arrival';
 
   onNav(feature: string) {
     this.lodedFeature = feature;

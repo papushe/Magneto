@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MixTapeComponent } from './mix-tape/mix-tape.component';
-import { ArrivelComponent } from './arrivel/arrivel.component';
+import { ArrivalComponent } from './arrival/arrival.component';
 import { AboutComponent } from './about/about.component';
 import { ExploreComponent } from './explore/explore.component';
 import { ApiService } from './services/api.service';
@@ -18,7 +18,7 @@ import { ApiService } from './services/api.service';
     AppComponent,
     HeaderComponent,
     MixTapeComponent,
-    ArrivelComponent,
+    ArrivalComponent,
     AboutComponent,
     ExploreComponent
   ],
@@ -32,8 +32,8 @@ import { ApiService } from './services/api.service';
         component: MixTapeComponent
       },
       {
-        path: 'arrivel',
-        component: ArrivelComponent
+        path: 'arrival',
+        component: ArrivalComponent
       },
       {
         path: 'about',

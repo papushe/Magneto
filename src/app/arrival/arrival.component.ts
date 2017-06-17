@@ -3,11 +3,11 @@ import { Mix } from '../services/Mix';
 import { ApiService } from '../services/api.service';
 
 @Component({
-  selector: 'app-arrivel',
-  templateUrl: './arrivel.component.html',
-  styleUrls: ['./arrivel.component.css']
+  selector: 'app-arrival',
+  templateUrl: 'arrival.component.html',
+  styleUrls: ['arrival.component.css']
 })
-export class ArrivelComponent implements OnInit {
+export class ArrivalComponent implements OnInit {
 
   allMixes: Mix[];
   constructor(private apiService: ApiService) { }
