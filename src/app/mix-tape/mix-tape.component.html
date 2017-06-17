@@ -9,7 +9,7 @@
         <img [src]="mix.img_src">
         <p>
           <span>{{mix.mix_name}}</span>
-          <span class="length">{{convertMillisecondsToDigitalClock(mix.length)}}</span>
+          <span class="length">{{apiService.convertMillisecondsToDigitalClock(mix.length)}}</span>
           <span class="mixBackground"></span>
         </p>
 

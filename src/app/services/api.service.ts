@@ -31,4 +31,10 @@ export class ApiService {
       .then(response => response.json() as Track[])
       .catch(err => err.json());
   }
+
+  convertMillisecondsToDigitalClock(ms) {
+    const minutes = Math.floor((ms % 3600000) / 60000), // 1 Minutes = 60000 Milliseconds
+      seconds = Math.floor(((ms % 360000) % 60000) / 1000); // 1 Second = 1000 Milliseconds
+    return  minutes + ':' + seconds;
+  }
 }
