@@ -10,6 +10,7 @@ import { MixTapeComponent } from './mix-tape/mix-tape.component';
 import { ArrivelComponent } from './arrivel/arrivel.component';
 import { AboutComponent } from './about/about.component';
 import { ExploreComponent } from './explore/explore.component';
+import { ApiService } from './services/api.service';
 
 
 @NgModule({
@@ -44,7 +45,7 @@ import { ExploreComponent } from './explore/explore.component';
       }
     ])
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

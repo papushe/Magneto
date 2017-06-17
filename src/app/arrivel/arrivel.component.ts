@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Mix } from '../services/Mix';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-arrivel',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArrivelComponent implements OnInit {
 
-  constructor() { }
+  allMixes: Mix[];
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
+    this.apiService.getAllMixes()
+      .then((mixes: Mix[]) => {
+        this.allMixes = mixes;
+        console.log(this.allMixes);
+    });
   }
-
 }
