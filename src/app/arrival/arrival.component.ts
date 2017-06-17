@@ -12,6 +12,7 @@ export class ArrivalComponent implements OnInit {
 
   allMixes: Mix[];
   randomTracks: Track[];
+  isSelectedDifined: boolean = false;
   selectedTrack: Track;
   constructor(private apiService: ApiService) { }
 
@@ -26,6 +27,7 @@ export class ArrivalComponent implements OnInit {
       .then((tracks: Track[]) => {
         this.randomTracks = tracks;
         this.selectedTrack = this.randomTracks[0];
+        this.isSelectedDifined = true;
       });
 
   }

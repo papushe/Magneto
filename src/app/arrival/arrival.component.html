@@ -3,7 +3,7 @@
     <li  *ngFor="let mix of allMixes" class="mixes">
       <img [src]="mix.img_src">
       <p class="mixDetails">
-        <span>{{mix.mix_name}}</span>
+        <span class="mixName">{{mix.mix_name}}</span>
         <span class="length">{{apiService.convertMillisecondsToDigitalClock(mix.length)}}</span>
         <span class="mixBackground"></span>
       </p>
@@ -11,14 +11,14 @@
   </ul>
 </div>
 <div class="col-md-3 randomTracksWrapper">
-  <h4>RANDOM_TRACKS</h4>
-  <img [src]="randomTracks[0].img_src">
+  <h5 *ngIf="isSelectedDifined"><span class="star">*</span>{{selectedTrack.creator}}</h5><h4>RANDOM_TRACKS</h4>
+    <img *ngIf="isSelectedDifined" [src]="selectedTrack.img_src" class="creator">
   <ul>
     <li  *ngFor="let track of randomTracks" class="randomTracks">
       <p>
-        <span>{{apiService.convertMillisecondsToDigitalClock(track.length)}}</span>
-        <span>{{track.creator}}</span>
-        <span>{{track.track_name}}</span>
+        <span class="trackLength">{{apiService.convertMillisecondsToDigitalClock(track.length)}}</span>
+        <span class="trackCreator">{{track.creator}}</span>
+        <span class="trackName">{{track.track_name}}</span>
       </p>
     </li>
   </ul>
