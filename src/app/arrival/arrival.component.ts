@@ -11,7 +11,7 @@ import { ApiService } from '../services/api.service';
 export class ArrivalComponent implements OnInit {
 
   allMixes: Mix[];
-  allTracks: Track[];
+  randomTracks: Track[];
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
@@ -21,9 +21,9 @@ export class ArrivalComponent implements OnInit {
         console.log(this.allMixes);
     });
 
-    this.apiService.getAllTracks()
+    this.apiService.getRandomTracks()
       .then((tracks: Track[]) => {
-        this.allTracks = tracks;
+        this.randomTracks = tracks;
         console.log(this.allMixes);
     });
   }
