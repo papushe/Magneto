@@ -56,7 +56,10 @@ span:nth-child(1){
 }
 .randomTracks span:nth-child(1){
   color: #ffffff;
-  margin-right: 80px;
+  margin-right: 50px;
+}
+.randomTracks span:nth-child(2){
+  color: #ffffff;
 }
 .randomTracks span:nth-child(3){
   float: right;
@@ -69,7 +72,7 @@ h4{
   width: 170px;
 }
 .randomTracksWrapper{
-  padding-right: 0px;
+  padding-right: 0;
   padding-left: 43px;
 }
 .randomTracksWrapper p{
