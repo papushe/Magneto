@@ -12,19 +12,20 @@ export class ArrivalComponent implements OnInit {
 
   allMixes: Mix[];
   randomTracks: Track[];
+  selectedTrack: Track;
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
+
     this.apiService.getAllMixes()
       .then((mixes: Mix[]) => {
         this.allMixes = mixes;
-        console.log(this.allMixes);
     });
 
     this.apiService.getRandomTracks()
       .then((tracks: Track[]) => {
         this.randomTracks = tracks;
-        console.log(this.allMixes);
-    });
+        this.selectedTrack = this.randomTracks[0];
+      });
   }
 }
