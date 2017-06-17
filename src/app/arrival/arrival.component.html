@@ -10,6 +10,16 @@
     </li>
   </ul>
 </div>
-<div class="col-md-4">
-  <p></p>
+<div class="col-md-3 randomTracksWrapper">
+  <h4>RANDOM_TRACKS</h4>
+  <ul>
+    <li  *ngFor="let track of randomTracks" class="randomTracks">
+      <p>
+        <span>{{apiService.convertMillisecondsToDigitalClock(track.length)}}</span>
+        <span>{{track.creator}}</span>
+        <span>{{track.track_name}}</span>
+      </p>
+    </li>
+  </ul>
 </div>
+<div class="col-md-1"></div>
