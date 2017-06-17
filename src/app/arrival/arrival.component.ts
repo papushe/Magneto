@@ -27,5 +27,6 @@ export class ArrivalComponent implements OnInit {
         this.randomTracks = tracks;
         this.selectedTrack = this.randomTracks[0];
       });
+
   }
 }
