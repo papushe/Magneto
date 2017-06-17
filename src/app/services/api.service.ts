@@ -40,8 +40,10 @@ export class ApiService {
   }
 
   convertMillisecondsToDigitalClock(ms) {
-    const minutes = Math.floor((ms % 3600000) / 60000), // 1 Minutes = 60000 Milliseconds
-      seconds = Math.floor(((ms % 360000) % 60000) / 1000); // 1 Second = 1000 Milliseconds
+    let minutes: any, seconds: any;
+    minutes = Math.floor((ms % 3600000) / 60000), // 1 Minutes = 60000 Milliseconds
+    seconds = Math.floor(((ms % 360000) % 60000) / 1000); // 1 Second = 1000 Milliseconds
+    seconds = (seconds < 10)? `0 + ${seconds}` : seconds;
     return  minutes + ':' + seconds;
   }
 }
