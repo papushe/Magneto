@@ -1,7 +1,7 @@
 #content {
   position:relative;
   height:500px;
-  padding: 0 10px 0 20px;
+  padding: 0 0 0 3.2%;
 }
 #content:before, #content:after, #content>:first-child:before, #content>:first-child:after {
   position:absolute;
@@ -33,9 +33,10 @@
 }
 .mixes{
   display: inline-block;
-  width: 170px;
+  width: 150px;
   height: 113px;
-  margin: 20px 12px 14px 0;
+  margin: 3% 3% 2% 0;
+
 }
 .length{
   float: right;
@@ -103,4 +104,7 @@ h5{
   vertical-align: top;
   color: #00ffe9;
   font-size: 20px;
+}
+.mixImg{
+  width: 150px;
 }

@@ -1,7 +1,7 @@
 <div class="col-md-8" id="content">
   <ul>
     <li  *ngFor="let mix of allMixes" class="mixes">
-      <img [src]="mix.img_src">
+      <img class="mixImg" [src]="mix.img_src">
       <p class="mixDetails">
         <span class="mixName">{{mix.mix_name}}</span>
         <span class="length">{{apiService.convertMillisecondsToDigitalClock(mix.length)}}</span>
