@@ -25,7 +25,7 @@ export class ArrivalComponent implements OnInit {
         this.allMixes = mixes;
     });
 
-    this.apiService.getRandomTracks()
+    this.apiService.getRandomTracks(7)
       .then((tracks: Track[]) => {
         this.randomTracks = tracks;
         this.selectedTrack = this.randomTracks[0];
