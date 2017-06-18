@@ -34,14 +34,14 @@ export class ApiService {
       .catch(err => err.json());
   }
 
-  getRandomTracks(trackCount): Promise<Track[]> {
+  getRandomTracks(trackCount: number): Promise<Track[]> {
     return this._http.get(`${this.baseUrl}/getRandomTracks/${trackCount}`)
       .toPromise()
       .then(response => response.json() as Track[])
       .catch(err => err.json());
   }
 
-  getRandomMixes(mixCount): Promise<Mix[]> {
+  getRandomMixes(mixCount: number): Promise<Mix[]> {
     return this._http.get(`${this.baseUrl}/getRandomMixes/${mixCount}`)
       .toPromise()
       .then(response => response.json() as Mix[])
