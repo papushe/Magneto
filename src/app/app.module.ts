@@ -11,6 +11,7 @@ import { ArrivalComponent } from './arrival/arrival.component';
 import { AboutComponent } from './about/about.component';
 import { ExploreComponent } from './explore/explore.component';
 import { ApiService } from './services/api.service';
+import { YouTubeApiService } from './services/youtube.api.service';
 
 
 @NgModule({
@@ -46,6 +47,6 @@ import { ApiService } from './services/api.service';
     ])
   ],
   providers: [ApiService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, YouTubeApiService]
 })
 export class AppModule { }
