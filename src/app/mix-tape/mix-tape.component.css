@@ -4,9 +4,9 @@
   border-bottom: 1px dotted #e82334;
   padding: 0px 0 5px 0;
   width: 150px;
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
-li{
+.mixes{
   /*margin-bottom: 5px;*/
   width: 150px;
   height: 140px;
@@ -19,7 +19,7 @@ img{
   float: right;
   color: #e82334;
 }
-span:nth-child(1){
+.mixName{
   color: #ffffff;
 }
 p{
@@ -39,8 +39,11 @@ p{
 }
 .trackTitles{
   display: inline-block;
-  margin-right: 5%;
+  margin-right: 18%;
   color: #ffffff;
+}
+.trackTitles:nth-child(1){
+  margin-right: 4%;
 }
 .trackTitlesWrapper{
   padding-left: 0;
@@ -48,4 +51,27 @@ p{
 
 .trackTitlesWrapper> .row{
   margin-left: 0;
+}
+.selectedTracks{
+  color: #ffffff;
+}
+ul{
+  list-style: none;
+
+}
+.trackCreator{
+  display: inline-block;
+  width: 130px;
+  margin-right: 2%;
+}
+.trackName{
+  display: inline-block;
+  width: 144px;
+}
+.trackLength{
+  margin-right: 4%;
+}
+.trackTitlesWrapperRow{
+  border: 1px solid #2a459b;
+  height: 30px;
 }

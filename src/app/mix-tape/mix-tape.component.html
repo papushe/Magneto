@@ -5,19 +5,19 @@
   </div>
   <div class="row">
     <div class="col-md-1"></div>
-    <div class="col-md-4 trackTitlesWrapper">
-      <div class="row">
-        <h4 class="trackTitles">TIME</h4>
-        <h4 class="trackTitles">ARTIST</h4>
-        <h4 class="trackTitles">TRACK</h4>
-        <h4 class="trackTitles">RANK</h4>
+    <div class="col-md-5 trackTitlesWrapper">
+      <div class="row trackTitlesWrapperRow">
+        <h5 class="trackTitles">TIME</h5>
+        <h5 class="trackTitles">ARTIST</h5>
+        <h5 class="trackTitles">TRACK</h5>
+        <h5 class="trackTitles">RANK</h5>
       </div>
       <ul>
-        <li *ngFor="let i of selectedTracks">
-          <span>{{apiService.convertMillisecondsToDigitalClock(i.length)}}</span>
-          <span>{{i.creator}}</span>
-          <span>{{i.track_name}}</span>
-          <span>01</span>
+        <li *ngFor="let selectTrack of selectedTracks">
+          <span class="selectedTracks trackLength">{{apiService.convertMillisecondsToDigitalClock(selectTrack.length)}}</span>
+          <span class="selectedTracks trackCreator">{{selectTrack.creator}}</span>
+          <span class="selectedTracks trackName">{{selectTrack.track_name}}</span>
+          <span class="selectedTracks">01</span>
         </li>
       </ul>
     </div>
@@ -32,7 +32,7 @@
     <li *ngFor="let mix of relatedMixes | slice:0:3" class="mixes">
         <img [src]="mix.img_src">
         <p>
-          <span>{{mix.mix_name}}</span>
+          <span class="mixName">{{mix.mix_name}}</span>
           <span class="length">{{apiService.convertMillisecondsToDigitalClock(mix.length)}}</span>
           <span class="mixBackground"></span>
         </p>
