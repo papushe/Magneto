@@ -12,6 +12,7 @@ import { AboutComponent } from './about/about.component';
 import { ExploreComponent } from './explore/explore.component';
 import { ApiService } from './services/api.service';
 import { YouTubeApiService } from './services/youtube.api.service';
+import { YoutubePlayerModule } from 'ng2-youtube-player';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { YouTubeApiService } from './services/youtube.api.service';
     BrowserModule,
     FormsModule,
     HttpModule,
+    YoutubePlayerModule,
     RouterModule.forRoot([
       {
         path: 'mix-tape',
@@ -46,7 +48,7 @@ import { YouTubeApiService } from './services/youtube.api.service';
       }
     ])
   ],
-  providers: [ApiService],
-  bootstrap: [AppComponent, YouTubeApiService]
+  providers: [ApiService, YouTubeApiService],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
