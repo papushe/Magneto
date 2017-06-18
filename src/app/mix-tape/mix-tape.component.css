@@ -1,4 +1,4 @@
-h4{
+#reletedMix{
   color: white;
   letter-spacing: 3px;
   border-bottom: 1px dotted #e82334;
@@ -31,4 +31,21 @@ p{
   display: block;
   background: url("../../assets/underMix.png") no-repeat;
   height: 10px;
+}
+.progressBar{
+  background: url("../../assets/progressBar2.png") no-repeat;
+  height: 51px;
+  width: 75%;
+}
+.trackTitles{
+  display: inline-block;
+  margin-right: 5%;
+  color: #ffffff;
+}
+.trackTitlesWrapper{
+  padding-left: 0;
+}
+
+.trackTitlesWrapper> .row{
+  margin-left: 0;
 }

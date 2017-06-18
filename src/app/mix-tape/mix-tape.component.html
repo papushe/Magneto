@@ -1,11 +1,35 @@
 <div class="col-md-10" id="content">
+  <div class="row">
+    <div class="col-md-1 mediaPlayer"></div>
+    <div class="col-md-11 progressBar"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-6 trackTitlesWrapper">
+      <div class="row">
+        <h4 class="trackTitles">TIME</h4>
+        <h4 class="trackTitles">ARTIST</h4>
+        <h4 class="trackTitles">TRACK</h4>
+        <h4 class="trackTitles">RANK</h4>
+      </div>
+      <ul>
+        <li *ngFor="let i of selectedTracks">
+          <span>{{apiService.convertMillisecondsToDigitalClock(i.length)}}</span>
+          <span>{{i.creator}}</span>
+          <span>{{i.track_name}}</span>
+          <span>01</span>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-5"></div>
+  </div>
 
 </div>
 
 <div class="col-md-2">
-  <h4>RELETED_MIX</h4>
+  <h4 id="reletedMix">RELETED_MIX</h4>
   <ul>
-    <li  *ngFor="let mix of allMixes | slice:0:3" class="mixes">
+    <li *ngFor="let mix of relatedMixes | slice:0:3" class="mixes">
         <img [src]="mix.img_src">
         <p>
           <span>{{mix.mix_name}}</span>

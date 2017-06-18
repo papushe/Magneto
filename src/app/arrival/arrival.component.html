@@ -4,7 +4,7 @@
       <a routerLink="/mix-tape" (click)="onSelect(mix.mix_name)">
       <img class="mixImg" [src]="mix.img_src">
         <p class="mixDetails">
-          <span class="mixName">{{mix.mix_name}}</span>
+          <span class="mixName">{{mix.mix_name | uppercase}}</span>
           <span class="length">{{apiService.convertMillisecondsToDigitalClock(mix.length)}}</span>
           <span class="mixBackground"></span>
         </p>

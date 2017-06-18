@@ -8,7 +8,7 @@ import  { Track } from './Track';
 @Injectable()
 export class ApiService {
 
-  selectedMix: string;
+  selectedMix: Mix;
 
   constructor(private _http: Http) { }
   baseUrl = 'https://magneto-ws.herokuapp.com';

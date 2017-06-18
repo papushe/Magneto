@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Mix } from '../services/Mix';
+import { Track } from '../services/Track';
 import { ApiService } from '../services/api.service';
 
 @Component({
@@ -9,21 +10,27 @@ import { ApiService } from '../services/api.service';
 })
 export class MixTapeComponent implements OnInit {
 
-  allMixes: Mix[];
-
-selectedMixName: string;
+  relatedMixes: Mix[];
+  selectedMixName: Mix;
+  selectedTracks: Track[];
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-    this.apiService.getAllMixes()
+
+
+
+    this.apiService.getRandomMixes(4)
       .then((mixes: Mix[]) => {
-        this.allMixes = mixes;
-        console.log(this.allMixes);
+        this.relatedMixes = mixes;
+        // console.log(this.allMixes);
+        this.selectedMixName = this.apiService.selectedMix || this.relatedMixes[3];
+
+        this.apiService.getTracksByMixName(this.selectedMixName.mix_name)
+          .then((tracks: Track[]) => {
+            this.selectedTracks = tracks;
+          });
+
       });
-
-
-   this.selectedMixName = this.apiService.selectedMix || 'first name';
-
   }
 }

@@ -33,7 +33,7 @@ export class ArrivalComponent implements OnInit {
       });
 
   }
-  onSelect(mixName: string) {
-    this.apiService.selectedMix = mixName;
+  onSelect(selectedMix: Mix) {
+    this.apiService.selectedMix = selectedMix;
   }
 }
