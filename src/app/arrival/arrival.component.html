@@ -1,12 +1,14 @@
 <div class="col-md-8" id="content">
   <ul>
-    <li  *ngFor="let mix of allMixes" class="mixes">
+    <li *ngFor="let mix of allMixes" class="mixes">
+      <a routerLink="/mix-tape" (click)="onSelect(mix.mix_name)">
       <img class="mixImg" [src]="mix.img_src">
-      <p class="mixDetails">
-        <span class="mixName">{{mix.mix_name}}</span>
-        <span class="length">{{apiService.convertMillisecondsToDigitalClock(mix.length)}}</span>
-        <span class="mixBackground"></span>
-      </p>
+        <p class="mixDetails">
+          <span class="mixName">{{mix.mix_name}}</span>
+          <span class="length">{{apiService.convertMillisecondsToDigitalClock(mix.length)}}</span>
+          <span class="mixBackground"></span>
+        </p>
+      </a>
     </li>
   </ul>
 </div>

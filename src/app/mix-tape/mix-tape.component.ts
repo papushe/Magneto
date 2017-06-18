@@ -11,7 +11,7 @@ export class MixTapeComponent implements OnInit {
 
   allMixes: Mix[];
 
-
+selectedMixName: string;
 
   constructor(private apiService: ApiService) { }
 
@@ -21,5 +21,9 @@ export class MixTapeComponent implements OnInit {
         this.allMixes = mixes;
         console.log(this.allMixes);
       });
+
+
+   this.selectedMixName = this.apiService.selectedMix || 'first name';
+
   }
 }

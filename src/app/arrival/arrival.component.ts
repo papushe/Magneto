@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Mix } from '../services/Mix';
 import { Track } from '../services/Track';
 import { ApiService } from '../services/api.service';
@@ -12,8 +12,10 @@ export class ArrivalComponent implements OnInit {
 
   allMixes: Mix[];
   randomTracks: Track[];
-  isSelectedDifined: boolean = false;
+  isSelectedDifined = false;
   selectedTrack: Track;
+
+  @Output() onMixSelect = new EventEmitter<string>();
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
@@ -30,5 +32,8 @@ export class ArrivalComponent implements OnInit {
         this.isSelectedDifined = true;
       });
 
+  }
+  onSelect(mixName: string) {
+    this.apiService.selectedMix = mixName;
   }
 }

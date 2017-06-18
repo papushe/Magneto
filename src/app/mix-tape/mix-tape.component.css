@@ -1,16 +1,19 @@
 h4{
   color: white;
-  letter-spacing: 5px;
+  letter-spacing: 3px;
   border-bottom: 1px dotted #e82334;
-  padding: 0 0 5px 0;
-  width: 170px;
+  padding: 0px 0 5px 0;
+  width: 150px;
+  margin-bottom: 0;
 }
 li{
   /*margin-bottom: 5px;*/
-  width: 170px;
+  width: 150px;
+  height: 140px;
 }
 img{
   display: block;
+  width: 150px;
 }
 .length{
   float: right;

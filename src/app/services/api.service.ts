@@ -8,8 +8,10 @@ import  { Track } from './Track';
 @Injectable()
 export class ApiService {
 
+  selectedMix: string;
+
   constructor(private _http: Http) { }
-  baseUrl: string = 'https://magneto-ws.herokuapp.com';
+  baseUrl = 'https://magneto-ws.herokuapp.com';
 
   getAllMixes(): Promise<Mix[]> {
     return this._http.get(`${this.baseUrl}/getAllMixes`)
@@ -32,7 +34,7 @@ export class ApiService {
       .catch(err => err.json());
   }
 
-  getRandomTracks() :Promise<Track[]> {
+  getRandomTracks(): Promise<Track[]> {
     return this._http.get(`${this.baseUrl}/getRandomTracks`)
       .toPromise()
       .then(response => response.json() as Track[])
@@ -43,7 +45,8 @@ export class ApiService {
     let minutes: any, seconds: any;
     minutes = Math.floor((ms % 3600000) / 60000); // 1 Minutes = 60000 Milliseconds
     seconds = Math.floor(((ms % 360000) % 60000) / 1000); // 1 Second = 1000 Milliseconds
-    seconds = (seconds < 10)? `0${seconds}` : seconds;
+    seconds = (seconds < 10) ? `0${seconds}` : seconds;
     return  minutes + ':' + seconds;
   }
+
 }

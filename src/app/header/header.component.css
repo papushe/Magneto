@@ -15,17 +15,15 @@ li{
   display: inline;
   margin-left: 25px;
 }
-/*div{*/
-  /*margin-top: 30px;*/
-  /*margin-right: 30px;*/
-/*}*/
 a{
   color: #ffffff;
   font-size: 20px;
 }
-/*a:hover{*/
-  /*color: red;*/
-/*}*/
+a:hover, a:focus{
+  text-decoration: none;
+  color: #ff0000;
+}
+
 .active-link{
   color: red;
 }
