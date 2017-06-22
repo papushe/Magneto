@@ -22,8 +22,12 @@
       </ul>
     </div>
     <div class="col-md-5"></div>
+    <youtube-player class=""
+                    [videoId]="getSelectedTrack().id"
+                    (ready)="getSelectedTrack().savePlayer($event)"
+                    (change)="getSelectedTrack().onStateChange($event)">
+    </youtube-player>
   </div>
-
 </div>
 
 <div class="col-md-2">

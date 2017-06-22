@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Mix } from '../services/Mix';
 import { Track } from '../services/Track';
 import { ApiService } from '../services/api.service';
+import { youTubePlayerService } from '../services/youtube.player';
 
 @Component({
   selector: 'app-mix-tape',
@@ -26,7 +27,8 @@ export class MixTapeComponent implements OnInit {
           .then((tracks: Track[]) => {
             this.selectedTracks = tracks;
           });
-
-      });
+    });
   }
+
+
 }
