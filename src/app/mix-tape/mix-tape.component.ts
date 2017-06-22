@@ -12,7 +12,7 @@ import { youTubePlayerService } from '../services/youtube.player';
 export class MixTapeComponent implements OnInit {
 
   relatedMixes: Mix[];
-  selectedMixName: Mix;
+  selectedMix: Mix;
   selectedTracks: Track[];
 
   constructor(private apiService: ApiService) { }
@@ -21,9 +21,9 @@ export class MixTapeComponent implements OnInit {
     this.apiService.getRandomMixes(4)
       .then((mixes: Mix[]) => {
         this.relatedMixes = mixes;
-        this.selectedMixName = this.apiService.selectedMix || this.relatedMixes[3];
+        this.selectedMix = this.apiService.selectedMix || this.relatedMixes[3];
 
-        this.apiService.getTracksByMixName(this.selectedMixName.mix_name)
+        this.apiService.getTracksByMixName(this.selectedMix.mix_name)
           .then((tracks: Track[]) => {
             this.selectedTracks = tracks;
           });
