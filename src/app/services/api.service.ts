@@ -9,9 +9,8 @@ import  { Track } from './Track';
 export class ApiService {
 
   selectedMix: Mix;
-
-  constructor(private _http: Http) { }
   baseUrl = 'https://magneto-ws.herokuapp.com';
+  constructor(private _http: Http) { }
 
   getAllMixes(): Promise<Mix[]> {
     return this._http.get(`${this.baseUrl}/getAllMixes`)
