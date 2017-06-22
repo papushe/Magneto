@@ -13,7 +13,7 @@
         <h5 class="trackTitles">RANK</h5>
       </div>
       <ul>
-        <li *ngFor="let selectTrack of selectedTracks">
+        <li *ngFor="let selectTrack of selectedTracks" (click)="playTrack($event)">
           <span class="selectedTracks trackLength">{{apiService.convertMillisecondsToDigitalClock(selectTrack.length)}}</span>
           <span class="selectedTracks trackCreator">{{selectTrack.creator}}</span>
           <span class="selectedTracks trackName">{{selectTrack.track_name}}</span>
@@ -23,9 +23,9 @@
     </div>
     <div class="col-md-5"></div>
     <youtube-player class=""
-                    [videoId]="getSelectedTrack().id"
-                    (ready)="getSelectedTrack().savePlayer($event)"
-                    (change)="getSelectedTrack().onStateChange($event)">
+                    [videoId]="currentPlayedTrack"
+                    (ready)="currentPlayedTrack.savePlayer($event)"
+                    (change)="currentPlayedTrack.onStateChange($event)">
     </youtube-player>
   </div>
 </div>
