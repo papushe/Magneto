@@ -25,7 +25,8 @@
     </div>
     <div class="col-md-5"></div>
     <youtube-player class=""
-                    [videoId]="currentPlayedTrack"
+                    *ngIf="currentPlayedTrack"
+                    [videoId]="currentPlayedTrack.id"
                     (ready)="currentPlayedTrack.savePlayer($event)"
                     (change)="currentPlayedTrack.onStateChange($event)">
     </youtube-player>

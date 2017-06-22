@@ -28,16 +28,25 @@ export class MixTapeComponent implements OnInit {
         this.apiService.getTracksByMixName(this.selectedMix.mix_name)
           .then((tracks: Track[]) => {
             this.selectedTracks = tracks;
-            console.log(this.selectedTracks[0].src);
+            this.currentPlayedTrack.id = this.selectedTracks[0].src;
+            console.log(this.currentPlayedTrack);
           });
     });
   }
 
   onTrackSelected(track: Track) {
-    console.log(track);
     this.currentPlayedTrack.id = track.src || this.selectedTracks[0].src;
-
+    this.play();
   }
+
+  play() {
+    this.currentPlayedTrack.playVideo();
+  }
+
+  pause() {
+    this.currentPlayedTrack.pauseVideo();
+  }
+
 
 
 }
