@@ -17,9 +17,6 @@ export class MixTapeComponent implements OnInit {
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-
-
-
     this.apiService.getRandomMixes(4)
       .then((mixes: Mix[]) => {
         this.relatedMixes = mixes;
