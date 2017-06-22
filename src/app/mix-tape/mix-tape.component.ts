@@ -14,6 +14,7 @@ export class MixTapeComponent implements OnInit {
   relatedMixes: Mix[];
   selectedMix: Mix;
   selectedTracks: Track[];
+
   currentPlayedTrack = new youTubePlayerService();
 
   constructor(private apiService: ApiService) { }
@@ -27,13 +28,15 @@ export class MixTapeComponent implements OnInit {
         this.apiService.getTracksByMixName(this.selectedMix.mix_name)
           .then((tracks: Track[]) => {
             this.selectedTracks = tracks;
-            console.log(this.selectedTracks);
+            console.log(this.selectedTracks[0].src);
           });
     });
   }
 
-  playTrack(track: Track) {
+  onTrackSelected(track: Track) {
+    console.log(track);
     this.currentPlayedTrack.id = track.src || this.selectedTracks[0].src;
+
   }
 
 

@@ -13,12 +13,14 @@
         <h5 class="trackTitles">RANK</h5>
       </div>
       <ul>
-        <li *ngFor="let selectTrack of selectedTracks" (click)="playTrack($event)">
-          <span class="selectedTracks trackLength">{{apiService.convertMillisecondsToDigitalClock(selectTrack.length)}}</span>
-          <span class="selectedTracks trackCreator">{{selectTrack.creator}}</span>
-          <span class="selectedTracks trackName">{{selectTrack.track_name}}</span>
-          <span class="selectedTracks">01</span>
-        </li>
+          <li *ngFor="let selectTrack of selectedTracks">
+            <a href="#" (click)="onTrackSelected(selectTrack)">
+              <span class="selectedTracks trackLength">{{apiService.convertMillisecondsToDigitalClock(selectTrack.length)}}</span>
+              <span class="selectedTracks trackCreator">{{selectTrack.creator}}</span>
+              <span class="selectedTracks trackName">{{selectTrack.track_name}}</span>
+              <span class="selectedTracks">01</span>
+            </a>
+          </li>
       </ul>
     </div>
     <div class="col-md-5"></div>
