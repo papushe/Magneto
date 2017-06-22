@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { YoutubePlayerModule } from 'ng2-youtube-player';
 
 
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import { ArrivalComponent } from './arrival/arrival.component';
 import { AboutComponent } from './about/about.component';
 import { ExploreComponent } from './explore/explore.component';
 import { ApiService } from './services/api.service';
+import { youTubePlayerService } from './services/youtube.player';
 
 
 @NgModule({
@@ -28,6 +30,7 @@ import { ApiService } from './services/api.service';
     BrowserModule,
     FormsModule,
     HttpModule,
+    YoutubePlayerModule,
     RouterModule.forRoot([
       {
         path: 'mix-tape',
@@ -47,7 +50,7 @@ import { ApiService } from './services/api.service';
       }
     ])
   ],
-  providers: [ApiService, {provide: LocationStrategy, useClass: HashLocationStrategy}
+  providers: [ApiService, {provide: LocationStrategy, useClass: HashLocationStrategy},youTubePlayerService
   ],
   bootstrap: [AppComponent]
 })

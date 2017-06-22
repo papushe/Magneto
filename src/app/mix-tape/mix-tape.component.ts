@@ -23,7 +23,6 @@ export class MixTapeComponent implements OnInit {
     this.apiService.getRandomMixes(4)
       .then((mixes: Mix[]) => {
         this.relatedMixes = mixes;
-        // console.log(this.allMixes);
         this.selectedMixName = this.apiService.selectedMix || this.relatedMixes[3];
 
         this.apiService.getTracksByMixName(this.selectedMixName.mix_name)
