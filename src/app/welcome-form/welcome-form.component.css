@@ -1,0 +1,140 @@
+p{
+  color:white;
+  width: 290px;
+  font-size: 20px;
+}
+span{
+  color:red;
+}
+h3{
+  color:white;
+  background: #101a39;
+  width: 290px;
+  padding-bottom: 5px;
+  opacity: 0.7;
+}
+#content {
+  padding-left: 22px;
+  padding-bottom: 18px;
+}
+#content:before, #content:after, #content>:first-child:before, #content>:first-child:after {
+  position:absolute;
+  width:60px;
+  height: 60px;
+  border: #ff0000 solid; /* or whatever colour */
+  content: ' ';
+}
+#content:before, #content:after, #content>:first-child:before  {
+  border: none;
+}
+#content>:first-child:after {
+  bottom:0;
+  left:0;
+  border-width: 0 0 2px 2px
+}
+.red{
+  color: red;
+}
+.blue{
+  color: #00ffe9;
+}
+.pink{
+  color: #840c57;
+}
+.green{
+  color: #00ff2a;
+}
+.menu{
+  background: #101a39;
+  opacity: 0.7;
+  margin-top: 50px;
+  /*width: 200px;*/
+  /*margin-left: 3%;*/
+  padding: 5px;
+}
+
+form{
+  margin-top: 50px;
+}
+.launching{
+  color: white;
+  background: red;
+  border:1px solid white;
+  border-radius: 0;
+  width: 100px;
+}
+.form-control {
+  display: inline;
+}
+input{
+  display: inline-block;
+  width: 260px;
+  background: #0236c9;
+  opacity: 0.7;
+  border: none;
+  border-radius: 0;
+}
+label{
+  color: white;
+  font-size: 20px;
+  border-bottom: 1px dotted red;
+  display: inline-block;
+  width: 133px;
+}
+.forName{
+  padding-left: 15px;
+}
+.forEmail{
+  padding-left: 60px;
+}
+.forPassword{
+  padding-left: 25px;
+}
+.col-sm-1{
+  margin-top: 50px;
+}
+.form-group{
+  background: #08194d;
+  opacity: 0.7;
+}
+.ch{
+  display: inline-block;
+  margin-left: 108px;
+  color: white;
+}
+.melody{
+  background: url("../../assets/melody.png") no-repeat;
+  height: 41px;
+  display: inline-block;
+  width: 274px;
+}
+.chords{
+  background: url("../../assets/chords.png") no-repeat;
+  height: 41px;
+  display: inline-block;
+  width: 276px;
+}
+.bassline{
+  background: url("../../assets/bassline.png") no-repeat;
+  height: 41px;
+  display: inline-block;
+  width: 276px;
+}
+.kick{
+  background: url("../../assets/kick.png") no-repeat;
+  height: 41px;
+  display: inline-block;
+  width: 274px;
+}
+.star{
+  vertical-align: top;
+  color: red;
+  font-size: 20px;
+}
+.launchingSubmit{
+  margin-top: 180px;
+}
+input[type=submit]:disabled{
+  background: white;
+  color: grey;
+}

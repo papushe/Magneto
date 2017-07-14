@@ -1,0 +1,76 @@
+<div class="row">
+  <div id="content" class="col-sm-3">
+    <h3>NOTE_ID</h3>
+    <p>
+      <span>every letter is a note</span>
+      youre register info
+      automatically make you a
+      sound signature.
+    </p>
+    <p>
+      fill the color bar and
+      find your beat
+    </p>
+  </div>
+  <div class="menu col-sm-2">
+    <p>NAME = <span class="red">MELODY</span></p>
+    <p>MAIL = <span class="blue">CHORDS</span></p>
+    <p>CODE = <span class="pink">BASSLINE</span></p>
+    <p>LAND = <span class="green">KICK</span></p>
+  </div>
+  <div class="col-sm-1"></div>
+  <div class="col-sm-4">
+    <form #form="ngForm">
+      <audio controls #player [attr.src]="src" hidden autoplay>
+        <source type="audio/mpeg">
+      </audio>
+      <div class="form-group">
+        <label class="forName">STAGE_NAME</label>
+        <input type="text"
+               class="form-control red"
+               required
+               name="name"
+               (keydown)="handleKeyboardEvent()"
+               ngModel>
+        <span class="star">*</span>
+        <span class="ch ch1">CH1 <span class="melody"></span></span>
+      </div>
+      <div class="form-group">
+        <label class="forEmail">E_MAIL</label>
+        <input type="email"
+               class="form-control blue"
+               name="email"
+               required
+               (keydown)="handleKeyboardEvent()"
+               ngModel>
+        <span class="star">*</span>
+        <span class="ch ch1">CH2 <span class="chords"></span></span>
+      </div>
+      <div class="form-group">
+        <label class="forPassword">PASS_CODE</label>
+        <input type="password"
+               class="form-control pink"
+               name="password"
+               required
+               (keydown)="handleKeyboardEvent()"
+               ngModel>
+        <span class="star">*</span>
+        <span class="ch ch1">CH3 <span class="bassline"></span></span>
+      </div>
+      <div class="form-group">
+        <label class="forMotherLand">MOTHER_LAND</label>
+        <input type="text"
+               class="form-control green"
+               name="motherLand"
+               required
+               (keydown)="handleKeyboardEvent()"
+               ngModel>
+        <span class="star">*</span>
+        <span class="ch ch1">CH4 <span class="kick"></span></span>
+      </div>
+    </form>
+  </div>
+  <div class="col-sm-1 launchingSubmit">
+    <input class="btn btn-default launching" type="submit" value="Launching" routerLink="/arrival" routerLinkActive="active-link"> <!-- [disabled]="!form.form.valid">-->
+  </div>
+</div>

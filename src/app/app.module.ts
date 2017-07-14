@@ -16,6 +16,7 @@ import { ApiService } from './services/api.service';
 import { youTubePlayerService } from './services/youtube.player';
 import {AppRoutingModule} from './app-routing.module';
 import { StartPageComponent } from './start-page/start-page.component';
+import { WelcomeFormComponent } from './welcome-form/welcome-form.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { StartPageComponent } from './start-page/start-page.component';
     ArrivalComponent,
     AboutComponent,
     ExploreComponent,
-    StartPageComponent
+    StartPageComponent,
+    WelcomeFormComponent
   ],
   imports: [
     BrowserModule,

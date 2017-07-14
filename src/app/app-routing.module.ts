@@ -8,14 +8,16 @@ import { ArrivalComponent } from './arrival/arrival.component';
 import { AboutComponent } from './about/about.component';
 import { ExploreComponent } from './explore/explore.component';
 import {StartPageComponent} from './start-page/start-page.component';
+import {WelcomeFormComponent} from './welcome-form/welcome-form.component'
 
 const appRouts: Routes = [
-  {path: '', redirectTo: '/mix-tape', pathMatch: 'full'},
+  {path: '', redirectTo: '/start-page', pathMatch: 'full'},
   {path: 'mix-tape', component: MixTapeComponent},
   {path: 'arrival', component: ArrivalComponent},
   {path: 'about', component: AboutComponent},
   {path: 'explore', component: ExploreComponent},
-  {path: 'start-page', component: StartPageComponent}
+  {path: 'start-page', component: StartPageComponent},
+  {path: 'welcome-form', component: WelcomeFormComponent}
 ];
 
 @NgModule({

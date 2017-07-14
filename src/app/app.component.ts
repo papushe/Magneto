@@ -14,7 +14,6 @@ export class AppComponent implements OnInit {
   constructor (private apiService: ApiService, private player: youTubePlayerService, @Inject(DOCUMENT) private document: any) {
   }
   ngOnInit() {
-    console.log(this.document.location.hash);
   }
 
   onNav(feature: string) {
