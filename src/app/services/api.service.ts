@@ -8,7 +8,6 @@ import  { Track } from './Track';
 @Injectable()
 export class ApiService {
 
-  isStartPage:boolean= false;
   selectedMix: Mix;
   baseUrl = 'https://magneto-ws.herokuapp.com';
   constructor(private _http: Http) { }
@@ -55,5 +54,4 @@ export class ApiService {
     seconds = (seconds < 10) ? `0${seconds}` : seconds;
     return  minutes + ':' + seconds;
   }
-
 }
