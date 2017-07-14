@@ -3,12 +3,18 @@
  */
 export class youTubePlayerService {
   id: string;
+  src: string;
   private player: YT.Player;
   private ytEvent: YT.PlayerEvent;
 
   constructor() {
   }
-
+  idSet(id){
+    this.id = id;
+  }
+  srcSet(id){
+    this.src = id;
+  }
   onStateChange(event) {
     this.ytEvent = event.data;
   }

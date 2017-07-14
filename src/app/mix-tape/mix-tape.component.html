@@ -14,7 +14,7 @@
       </div>
       <ul>
           <li *ngFor="let selectTrack of selectedTracks">
-            <a href="#" (click)="onTrackSelected(selectTrack)">
+            <a href="#" (click)="onTrackSelected(selectTrack.src)">
               <span class="selectedTracks trackLength">{{apiService.convertMillisecondsToDigitalClock(selectTrack.length)}}</span>
               <span class="selectedTracks trackCreator">{{selectTrack.creator}}</span>
               <span class="selectedTracks trackName">{{selectTrack.track_name}}</span>

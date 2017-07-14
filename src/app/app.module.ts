@@ -15,6 +15,7 @@ import { ExploreComponent } from './explore/explore.component';
 import { ApiService } from './services/api.service';
 import { youTubePlayerService } from './services/youtube.player';
 import {AppRoutingModule} from './app-routing.module';
+import { StartPageComponent } from './start-page/start-page.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {AppRoutingModule} from './app-routing.module';
     MixTapeComponent,
     ArrivalComponent,
     AboutComponent,
-    ExploreComponent
+    ExploreComponent,
+    StartPageComponent
   ],
   imports: [
     BrowserModule,

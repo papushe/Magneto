@@ -1,0 +1,21 @@
+#start{
+  display: inline-block;
+  background: url("../../assets/start.png") no-repeat;
+  height: 91px;
+  width: 548px;
+}
+#startButton{
+  background: url("../../assets/startButton.png") no-repeat;
+  display: inline-block;
+  height: 47px;
+  width: 125px;
+  border: none;
+  margin-left: 50px;
+  vertical-align: 23px;
+}
+.startWrapper{
+  text-align: center;
+}
+.row{
+  margin-top: 18%;
+}

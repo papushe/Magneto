@@ -15,9 +15,11 @@ export class MixTapeComponent implements OnInit {
   selectedMix: Mix;
   selectedTracks: Track[];
 
-  currentPlayedTrack = new youTubePlayerService();
 
-  constructor(private apiService: ApiService) { }
+
+  constructor(private apiService: ApiService, private currentPlayedTrack: youTubePlayerService) {
+    currentPlayedTrack.idSet('MwSkC85TDgY');
+  }
 
   ngOnInit() {
     this.apiService.getRandomMixes(4)
@@ -26,26 +28,27 @@ export class MixTapeComponent implements OnInit {
         this.selectedMix = this.apiService.selectedMix || this.relatedMixes[3];
 
         this.apiService.getTracksByMixName(this.selectedMix.mix_name)
-          .then((tracks: Track[]) => {
-            this.selectedTracks = tracks;
-            this.currentPlayedTrack.id = this.selectedTracks[0].src;
-            console.log(this.currentPlayedTrack);
-          });
+          .then((tracks: Track[]) => this.selectedTracks = tracks);
     });
   }
-
-  onTrackSelected(track: Track) {
-    this.currentPlayedTrack.id = track.src || this.selectedTracks[0].src;
-    this.play();
-  }
-
-  play() {
-    this.currentPlayedTrack.playVideo();
-  }
-
   pause() {
-    this.currentPlayedTrack.pauseVideo();
+     this.currentPlayedTrack.pauseVideo();
   }
+  onTrackSelected(track: string) {
+
+    console.log("this id " + track);
+
+    console.log("before 8888888 " + this.currentPlayedTrack.id);
+
+    this.currentPlayedTrack.idSet(track);
+    // this.currentPlayedTrack.srcSet(track);
+
+    console.log("after 999999999 " + this.currentPlayedTrack.id);
+    this.currentPlayedTrack.playVideo();
+
+  }
+
+
 
 
 

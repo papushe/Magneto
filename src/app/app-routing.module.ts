@@ -7,13 +7,15 @@ import { MixTapeComponent } from './mix-tape/mix-tape.component';
 import { ArrivalComponent } from './arrival/arrival.component';
 import { AboutComponent } from './about/about.component';
 import { ExploreComponent } from './explore/explore.component';
+import {StartPageComponent} from './start-page/start-page.component';
 
 const appRouts: Routes = [
   {path: '', redirectTo: '/mix-tape', pathMatch: 'full'},
   {path: 'mix-tape', component: MixTapeComponent},
   {path: 'arrival', component: ArrivalComponent},
   {path: 'about', component: AboutComponent},
-  {path: 'explore', component: ExploreComponent}
+  {path: 'explore', component: ExploreComponent},
+  {path: 'start-page', component: StartPageComponent}
 ];
 
 @NgModule({
@@ -21,4 +23,5 @@ const appRouts: Routes = [
   exports: [RouterModule]
 })
 
-export  class AppRoutingModule {}
+export  class AppRoutingModule {
+}
