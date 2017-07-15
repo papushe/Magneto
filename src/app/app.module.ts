@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { YoutubePlayerModule } from 'ng2-youtube-player';
 
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MixTapeComponent } from './mix-tape/mix-tape.component';
