@@ -11,6 +11,7 @@ export class ExploreComponent implements OnInit {
   allMixes: Mix[];
   alertDeleted: string = '';
   alertCreated: string = '';
+  alertNotCreated: string = '';
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
@@ -32,7 +33,25 @@ export class ExploreComponent implements OnInit {
       .then()
   }
   onCreate(val){
-    this.createMix(val.createMixName,val.creator,val.trackId1,val.trackId2,val.trackId3);
-    this.alertCreated=`Success: <i>${val.createMixName}</i> was Created`;
+    let count = 0;
+    for(let i = 1; i<=9;i++){
+      if(val.trackId1 === i){
+        count++;
+      }
+      if(val.trackId2 === i){
+        count++;
+      }
+      if(val.trackId3 === i){
+        count++;
+      }
+    }
+    if(count === 3){
+      this.createMix(val.createMixName,val.creator,val.trackId1,val.trackId2,val.trackId3);
+      this.alertNotCreated= '';
+      this.alertCreated=`Success: <i>${val.createMixName}</i> was Created`;
+    }else {
+      this.alertCreated='';
+      this.alertNotCreated=`Error: <i>${val.createMixName}</i> not Created`;
+    }
   }
 }
