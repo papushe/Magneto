@@ -1,6 +1,6 @@
 p{
   color:white;
-  width: 290px;
+  /*width: 290px;*/
   font-size: 20px;
 }
 span{
@@ -68,7 +68,7 @@ form{
 }
 input{
   display: inline-block;
-  width: 260px;
+  width:45% ;/* 260px;*/
   background: #0236c9;
   opacity: 0.7;
   border: none;

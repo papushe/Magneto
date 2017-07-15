@@ -2,57 +2,59 @@
   <div class="col-sm-1"></div>
 <div class="col-sm-4 createMix">
   <h2>CREATE_YOUR_OWN_MIX</h2>
-<form #form="ngForm">
+  <form #createForm="ngForm"
+        (ngSubmit)="onCreate(createForm.value)">
   <div class="form-group">
     <label class="forName">MIX_NAME</label>
     <input type="text"
            class="form-control"
            required
            name="mixName"
-           ngModel>
+           [(ngModel)]="mixName">
     <span class="star">*</span>
   </div>
   <div class="form-group">
-    <label class="forName">CREATOR</label>
+    <label class="forCreator">CREATOR</label>
     <input type="text"
            class="form-control"
            required
            name="creator"
-           ngModel>
+           [(ngModel)]="creator">
     <span class="star">*</span>
   </div>
   <div class="form-group">
-    <label class="forName">#1_TRACK_ID</label>
+    <label class="forTrackId1">#1_TRACK_ID</label>
     <input type="number"
            class="form-control"
            required
            min="1"
            max="9"
            name="trackId1"
-           ngModel>
+           [(ngModel)]="trackId1">
     <span class="star">*</span>
   </div>
   <div class="form-group">
-    <label class="forName">#2_TRACK_ID</label>
+    <label class="forTrackId2">#2_TRACK_ID</label>
     <input type="number"
            class="form-control"
            required
            min="1"
            max="9"
            name="trackId2"
-           ngModel>
+           [(ngModel)]="trackId2">
     <span class="star">*</span>
   </div>
   <div class="form-group">
-    <label class="forName">#3_TRACK_ID</label>
+    <label class="forTrackId3">#3_TRACK_ID</label>
     <input type="number"
            class="form-control"
            required
            min="1"
            max="9"
            name="trackId3"
-           ngModel>
+           [(ngModel)]="trackId3">
     <span class="star">*</span>
+    <span class="label label-info" [innerHTML]="alertCreated"></span>
   </div>
   <input class="btn btn-default launching" type="submit" value="Create"> <!-- [disabled]="!form.form.valid">-->
 </form>
@@ -60,8 +62,8 @@
   <div class="col-sm-2"></div>
 <div class="col-sm-4 deleteMix">
   <h2>DROP_MIX :(</h2>
-  <form #form="ngForm"
-        (ngSubmit)="onDelete(form.value)">
+  <form #deleteForm="ngForm"
+        (ngSubmit)="onDelete(deleteForm.value)">
     <div class="form-group">
       <label class="forName">MIX_NAME</label>
       <select name="mixName" [(ngModel)]="mixName">
@@ -71,8 +73,9 @@
         </option>
       </select>
       <span class="star">*</span>
+      <span class="label label-danger" [innerHTML]="alertDeleted"></span>
     </div>
-    <input class="btn btn-default launching" type="submit" value="Delete" confirm='Are you sure?'><!-- [disabled]="mixName === '-- Select mix --'">-->
+    <input class="btn btn-default launching" type="submit" value="Delete"><!-- [disabled]="mixName === '-- Select mix --'">-->
   </form>
 </div>
   <div class="col-sm-1"></div>

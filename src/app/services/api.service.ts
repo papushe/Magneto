@@ -54,6 +54,12 @@ export class ApiService {
       .catch(err => err.json());
   }
 
+  createMix(mixName: string, creator: string, track1: number, track2: number, track3: number): Promise<Mix[]> {
+    return this._http.get(`${this.baseUrl}/createNewMix/${mixName}/${creator}/${track1}/${track2}/${track3}`)
+      .toPromise()
+      .then(response => response.json() as Mix[])
+      .catch(err => err.json());
+  }
 
 
   convertMillisecondsToDigitalClock(ms) {

@@ -9,28 +9,30 @@ import { ApiService } from '../services/api.service';
 })
 export class ExploreComponent implements OnInit {
   allMixes: Mix[];
+  alertDeleted: string = '';
+  alertCreated: string = '';
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-
     this.apiService.getAllMixes()
       .then((mixes: Mix[]) => {
         this.allMixes = mixes;
       });
-
-
-
-
   }
-
-
-
-  private postData(a) {
-    this.apiService.deleteMix(a)
+  private deletedMix(mix) {
+    this.apiService.deleteMix(mix)
       .then()
   }
   onDelete(val) {
-    this.postData(val.mixName);
-    console.log(val.mixName);
+    this.deletedMix(val.mixName);
+    this.alertDeleted=`Success: <i>${val.mixName}</i> was Deleted`;
+  }
+  private createMix(name, creator, track1, track2, track3){
+    this.apiService.createMix(name, creator, track1, track2, track3)
+      .then()
+  }
+  onCreate(val){
+    this.createMix(val.mixName,val.creator,val.trackId1,val.trackId2,val.trackId3);
+    this.alertCreated=`Success: <i>${val.mixName}</i> was Created`;
   }
 }
