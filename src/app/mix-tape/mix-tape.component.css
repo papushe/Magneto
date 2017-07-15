@@ -75,3 +75,37 @@ ul{
   border: 1px solid #2a459b;
   height: 30px;
 }
+.playerButton{
+  margin-right: 5px;
+}
+.pause{
+  background: url("../../assets/player/pause.png") no-repeat;
+  width: 41px;
+  height: 41px;
+  border: none;
+}
+.play{
+  background: url("../../assets/player/play.png") no-repeat;
+  width: 43px;
+  height: 43px;
+  border: 1px solid white;
+}
+.previous{
+  background: url("../../assets/player/previous.png") no-repeat;
+  width: 44px;
+  height: 44px;
+  border: 1px solid white;
+}
+.next{
+  background: url("../../assets/player/next.png") no-repeat;
+  width: 44px;
+  height: 44px;
+  border: 1px solid white;
+}
+.playerButtonsRow{
+  margin-bottom: 20px;
+}
+.playerButtons{
+  background: #062171;
+  opacity: 0.7;
+}

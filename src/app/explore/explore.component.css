@@ -1,0 +1,49 @@
+.star{
+  vertical-align: top;
+  color: red;
+  font-size: 20px;
+}
+.form-control {
+  display: inline;
+}
+input{
+  display: inline-block;
+  width: 260px;
+  background: #0236c9;
+  opacity: 0.7;
+  border: none;
+  border-radius: 0;
+  color: white;
+}
+label{
+  color: white;
+  font-size: 20px;
+  border-bottom: 1px dotted red;
+  display: inline-block;
+  width: 133px;
+}
+input[type=submit]:disabled{
+  background: white;
+  color: grey;
+}
+h2{
+  color: red;
+  margin-bottom: 40px;
+}
+input[type=submit]:disabled{
+  background: white;
+  color: grey;
+}
+.launchingSubmit{
+}
+input[type="submit"]{
+  background: red;
+  width: 100px;
+  border:1px solid white;
+}
+input[type="submit"]:hover{
+  background: red;
+  width: 100px;
+  border:1px solid white;
+  color: white;
+}

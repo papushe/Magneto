@@ -47,6 +47,15 @@ export class ApiService {
       .catch(err => err.json());
   }
 
+  deleteMix(mixName: string): Promise<Mix[]> {
+    return this._http.get(`${this.baseUrl}/dropMix/${mixName}`)
+      .toPromise()
+      .then(response => response.json() as Mix[])
+      .catch(err => err.json());
+  }
+
+
+
   convertMillisecondsToDigitalClock(ms) {
     let minutes: any, seconds: any;
     minutes = Math.floor((ms % 3600000) / 60000); // 1 Minutes = 60000 Milliseconds
