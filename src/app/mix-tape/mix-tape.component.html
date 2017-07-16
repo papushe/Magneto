@@ -2,9 +2,9 @@
   <div class="row playerButtonsRow">
     <div class="col-md-1"></div>
     <div class="col-md-7 playerButtons">
-      <button class="playerButton pause"></button>
-      <button class="playerButton play"></button>
-      <button class="playerButton previous"></button>
+      <button class="playerButton pause" (click)="pause()"></button>
+      <button class="playerButton play" (click)="play()"></button>
+      <button class="playerButton previous" (click)="startOver()"></button>
       <button class="playerButton next"></button>
     </div>
   </div>
@@ -23,7 +23,7 @@
       </div>
       <ul>
           <li *ngFor="let selectTrack of selectedTracks">
-            <a href="#" (click)="onTrackSelected(selectTrack.src)">
+            <a href="#/mix-tape" (click)="onTrackSelected(selectTrack.src)">
               <span class="selectedTracks trackLength">{{apiService.convertMillisecondsToDigitalClock(selectTrack.length)}}</span>
               <span class="selectedTracks trackCreator">{{selectTrack.creator}}</span>
               <span class="selectedTracks trackName">{{selectTrack.track_name}}</span>
