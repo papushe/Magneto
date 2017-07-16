@@ -3,7 +3,6 @@
  */
 export class youTubePlayerService {
   id: string;
-  // src: string;
   private player: YT.Player;
   private ytEvent: YT.PlayerEvent;
 
@@ -14,11 +13,9 @@ export class youTubePlayerService {
   }
   onStateChange(event) {
     this.ytEvent = event.data;
-    console.log('changed!');
   }
   savePlayer(player: YT.Player) {
     this.player = player;
-    console.log('saved!');
   }
   playVideo() {
     this.player.playVideo();
@@ -33,5 +30,4 @@ export class youTubePlayerService {
     this.player.stopVideo();
     this.player.playVideo();
   }
-
 }
