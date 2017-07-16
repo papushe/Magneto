@@ -1,7 +1,7 @@
 <div class="col-md-8" id="content">
   <ul>
     <li *ngFor="let mix of allMixes" class="mixes">
-      <a routerLink="/mix-tape" (click)="onSelect(mix.mix_name)">
+      <a routerLink="/mix-tape" (click)="onSelect(mix)">
       <img class="mixImg" [src]="mix.img_src">
         <p class="mixDetails">
           <span class="mixName">{{mix.mix_name | uppercase}}</span>
