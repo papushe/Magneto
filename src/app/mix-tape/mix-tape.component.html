@@ -6,6 +6,7 @@
       <button class="playerButton play" (click)="play()"></button>
       <button class="playerButton previous" (click)="startOver()"></button>
       <button class="playerButton next"></button>
+      <span class="mixHeader" *ngIf="selectedMix">{{selectedMix.mix_name}}</span>
     </div>
   </div>
   <div class="row">
@@ -33,7 +34,7 @@
       </ul>
     </div>
     <div class="col-md-5"></div>
-    <youtube-player class=""
+    <youtube-player hidden
                     *ngIf="currentPlayedTrack"
                     [videoId]="currentPlayedTrack.id"
                     (ready)="currentPlayedTrack.savePlayer($event)"
