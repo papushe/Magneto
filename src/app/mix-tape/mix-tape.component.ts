@@ -14,9 +14,10 @@ export class MixTapeComponent implements OnInit {
   relatedMixes: Mix[];
   selectedMix: Mix;
   selectedTracks: Track[];
+  videoId: string = 'MwSkC85TDgY';
 
   constructor(private apiService: ApiService, private currentPlayedTrack: youTubePlayerService) {
-    currentPlayedTrack.idSet('MwSkC85TDgY');
+    currentPlayedTrack.idSet(this.videoId);
   }
 
   ngOnInit() {
@@ -29,21 +30,14 @@ export class MixTapeComponent implements OnInit {
           .then((tracks: Track[]) => this.selectedTracks = tracks);
     });
   }
-  pause() {
-     this.currentPlayedTrack.pauseVideo();
-  }
+  pause() { this.currentPlayedTrack.pauseVideo(); }
+  play() { this.currentPlayedTrack.playVideo();  }
+  startOver() {this.currentPlayedTrack.startOver(); }
+  endPlay() {}
+
   onTrackSelected(track: string) {
-
-    console.log("this id " + track);
-
-    console.log("before 8888888 " + this.currentPlayedTrack.id);
-
-    this.currentPlayedTrack.idSet(track);
-    // this.currentPlayedTrack.srcSet(track);
-
-    console.log("after 999999999 " + this.currentPlayedTrack.id);
-    this.currentPlayedTrack.playVideo();
-
+    this.currentPlayedTrack.loadVideo(track);
+    this.play();
   }
 
 
