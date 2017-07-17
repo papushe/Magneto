@@ -30,4 +30,9 @@ export class youTubePlayerService {
     this.player.stopVideo();
     this.player.playVideo();
   }
+  getMilliSeconds() {
+    if (this.player && this.player.getPlayerState() > 0)
+     return this.player.getCurrentTime() * 1000;
+    else return 0;
+  }
 }

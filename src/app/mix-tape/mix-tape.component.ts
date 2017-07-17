@@ -75,4 +75,5 @@ export class MixTapeComponent implements OnInit {
     }
     this.currentPlayedTrack.loadVideo(this.selectedTracks[this.whichTrackPlay].src);
   }
+
 }
