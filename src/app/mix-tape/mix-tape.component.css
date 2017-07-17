@@ -102,6 +102,12 @@ ul{
   height: 44px;
   border: 1px solid white;
 }
+.stop{
+  background: url("../../assets/player/stop.png") no-repeat;
+  width: 43px;
+  height: 43px;
+  border: 1px solid white;
+}
 .playerButtonsRow{
   margin-bottom: 20px;
 }

@@ -4,6 +4,7 @@
     <div class="col-md-7 playerButtons">
       <button class="playerButton pause" (click)="pause()"></button>
       <button class="playerButton play" (click)="play()"></button>
+      <button class="playerButton stop"></button>
       <button class="playerButton previous" (click)="startOver()"></button>
       <button class="playerButton next"></button>
       <img class="mixImg" *ngIf="selectedMix" [src]="selectedMix.img_src">
