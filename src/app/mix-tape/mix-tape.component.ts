@@ -63,7 +63,6 @@ export class MixTapeComponent implements OnInit {
     this.play();
   }
   onSelect(selectedMix: Mix) {
-    console.log(selectedMix);
     this.apiService.selectedMix = selectedMix;
     this.ngOnInit();
   }
