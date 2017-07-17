@@ -62,6 +62,11 @@ export class MixTapeComponent implements OnInit {
     this.currentPlayedTrack.loadVideo(track);
     this.play();
   }
+  onSelect(selectedMix: Mix) {
+    console.log(selectedMix);
+    this.apiService.selectedMix = selectedMix;
+    this.ngOnInit();
+  }
   trackResolver() {
     if(this.whichTrackPlay === this.selectedTracks.length - 1) {
       this.whichTrackPlay = 0;

@@ -50,12 +50,14 @@
   <h4 id="reletedMix">RELETED_MIX</h4>
   <ul>
     <li *ngFor="let mix of relatedMixes | slice:0:3" class="mixes">
-        <img [src]="mix.img_src">
+      <a routerLink="/mix-tape" (click)="onSelect(mix)">
+      <img [src]="mix.img_src">
         <p>
           <span class="mixName">{{mix.mix_name}}</span>
           <span class="length">{{apiService.convertMillisecondsToDigitalClock(mix.length)}}</span>
           <span class="mixBackground"></span>
         </p>
+      </a>
     </li>
   </ul>
 </div>
