@@ -37,7 +37,7 @@ export class MixTapeComponent implements OnInit {
             this.selectedTracks = tracks;
           });
     });
-    this.whichTrackPlay = -1;   //initializing the player
+    this.whichTrackPlay = -1;
   }
   pause() {
     this.currentPlayedTrack.pauseVideo();

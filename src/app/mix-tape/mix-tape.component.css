@@ -2,12 +2,11 @@
   color: white;
   letter-spacing: 3px;
   border-bottom: 1px dotted #e82334;
-  padding: 0px 0 5px 0;
+  padding: 0 0 5px 0;
   width: 150px;
   margin-bottom: 10px;
 }
 .mixes{
-  /*margin-bottom: 5px;*/
   width: 150px;
   height: 140px;
 }
@@ -57,7 +56,6 @@ p{
 }
 ul{
   list-style: none;
-
 }
 .trackCreator{
   display: inline-block;
@@ -126,4 +124,3 @@ ul{
   display: inline-block;
   vertical-align: 2px;
 }
-

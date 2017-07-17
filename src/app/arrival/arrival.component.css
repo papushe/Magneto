@@ -1,14 +1,12 @@
 #content {
   position:relative;
-  /*height:500px;*/
   padding: 0 0 0 3.2%;
 }
 #content:before, #content:after, #content>:first-child:before, #content>:first-child:after {
   position:absolute;
   width:60px;
   height: 60px;
-  border: #ff0000 solid; /* or whatever colour */
-  /*border-style:solid; !* or whatever style *!*/
+  border: #ff0000 solid;
   content: ' ';
 }
 #content:before {
@@ -36,7 +34,6 @@
   width: 150px;
   height: 113px;
   margin: 3% 3% 2% 0;
-
 }
 .length{
   float: right;
@@ -68,17 +65,13 @@
   display: inline-block;
 }
 .trackName{
-  /*float: right;*/
   color: #ffffff;
   font-size: 12px;
 }
 h4{
   color: #00ffe9;
-  /*letter-spacing: 5px;*/
-  /*width: 170px;*/
   margin-bottom: 0;
   display: inline-block;
-  /*float: right;*/
 }
 .creator{
   display: block;
