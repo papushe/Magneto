@@ -1,6 +1,5 @@
 p{
   color:white;
-  /*width: 290px;*/
   font-size: 20px;
 }
 span{
@@ -21,7 +20,7 @@ h3{
   position:absolute;
   width:60px;
   height: 60px;
-  border: #ff0000 solid; /* or whatever colour */
+  border: #ff0000 solid;
   content: ' ';
 }
 #content:before, #content:after, #content>:first-child:before  {
@@ -48,8 +47,6 @@ h3{
   background: #101a39;
   opacity: 0.7;
   margin-top: 50px;
-  /*width: 200px;*/
-  /*margin-left: 3%;*/
   padding: 5px;
 }
 
@@ -80,15 +77,6 @@ label{
   border-bottom: 1px dotted red;
   display: inline-block;
   width: 133px;
-}
-.forName{
-  /*padding-left: 15px;*/
-}
-.forEmail{
-  /*padding-left: 60px;*/
-}
-.forPassword{
-  /*padding-left: 25px;*/
 }
 .col-sm-1{
   margin-top: 50px;

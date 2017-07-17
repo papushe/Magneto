@@ -15,9 +15,7 @@ export class WelcomeFormComponent implements AfterViewInit {
   baseUrl:string = '../../assets/sounds/';
 
   constructor() { }
-
   ngAfterViewInit() {}
-
   @HostListener('window:keydown', ['$event'])
   handleKeyboardEvent() {
     this.getRandomSound();

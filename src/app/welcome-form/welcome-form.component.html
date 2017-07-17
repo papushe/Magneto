@@ -18,7 +18,6 @@
     <p>CODE = <span class="pink">BASSLINE</span></p>
     <p>LAND = <span class="green">KICK</span></p>
   </div>
-  <!--<div class="col-sm-1"></div>-->
   <div class="col-md-5 col-sm-12">
     <form #form="ngForm">
       <audio controls #player [attr.src]="src" hidden autoplay>
@@ -70,6 +69,6 @@
     </form>
   </div>
   <div class="col-md-1 launchingSubmit">
-    <input class="btn btn-default launching" type="submit" value="Launching" routerLink="/arrival" routerLinkActive="active-link"> <!-- [disabled]="!form.form.valid">-->
+    <input class="btn btn-default launching" type="submit" value="Launching" routerLink="/arrival" routerLinkActive="active-link" [disabled]="!form.form.valid">
   </div>
 </div>
