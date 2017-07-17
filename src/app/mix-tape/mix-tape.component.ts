@@ -37,7 +37,7 @@ export class MixTapeComponent implements OnInit {
             this.selectedTracks = tracks;
           });
     });
-    this.whichTrackPlay = 0;
+    this.whichTrackPlay = -1;   //initializing the player
   }
   pause() {
     this.currentPlayedTrack.pauseVideo();
@@ -63,9 +63,7 @@ export class MixTapeComponent implements OnInit {
     this.play();
   }
   trackResolver() {
-    console.log(`getting: ${this.whichTrackPlay}`);
-    console.log(`named: ${this.selectedTracks[this.whichTrackPlay].track_name}`);
-    if(this.whichTrackPlay >= this.selectedMix.tracks_id.length) {
+    if(this.whichTrackPlay === this.selectedTracks.length - 1) {
       this.whichTrackPlay = 0;
     }
     else {
