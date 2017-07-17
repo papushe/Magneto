@@ -14,6 +14,8 @@ export class MixTapeComponent implements OnInit {
   relatedMixes: Mix[];
   selectedMix: Mix;
   selectedTracks: Track[];
+  whichTrackPlay: number;
+  pausedTrack: boolean = false;
 
   constructor(private apiService: ApiService, private currentPlayedTrack: youTubePlayerService) {
     this.currentPlayedTrack.idSet('MwSkC85TDgY');
@@ -35,20 +37,40 @@ export class MixTapeComponent implements OnInit {
             this.selectedTracks = tracks;
           });
     });
+    this.whichTrackPlay = 0;
   }
   pause() {
     this.currentPlayedTrack.pauseVideo();
+    this.pausedTrack = true;
   }
   play() {
+    if(!this.pausedTrack) {this.trackResolver();}
     this.currentPlayedTrack.playVideo();
+    this.pausedTrack = false;
   }
   startOver() {
     this.currentPlayedTrack.startOver();
   }
-  playNext() {}
-
+  playNext() {
+    this.play();
+  }
+  stop() {
+    this.startOver();
+    this.pause();
+  }
   onTrackSelected(track: string) {
     this.currentPlayedTrack.loadVideo(track);
     this.play();
+  }
+  trackResolver() {
+    console.log(`getting: ${this.whichTrackPlay}`);
+    console.log(`named: ${this.selectedTracks[this.whichTrackPlay].track_name}`);
+    if(this.whichTrackPlay >= this.selectedMix.tracks_id.length) {
+      this.whichTrackPlay = 0;
+    }
+    else {
+      this.whichTrackPlay++;
+    }
+    this.currentPlayedTrack.loadVideo(this.selectedTracks[this.whichTrackPlay].src);
   }
 }

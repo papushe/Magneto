@@ -4,9 +4,9 @@
     <div class="col-md-7 playerButtons">
       <button class="playerButton pause" (click)="pause()"></button>
       <button class="playerButton play" (click)="play()"></button>
-      <button class="playerButton stop"></button>
+      <button class="playerButton stop" (click)="stop()"></button>
       <button class="playerButton previous" (click)="startOver()"></button>
-      <button class="playerButton next"></button>
+      <button class="playerButton next" (click)="playNext()"></button>
       <img class="mixImg" *ngIf="selectedMix" [src]="selectedMix.img_src">
       <span class="mixHeader" *ngIf="selectedMix">#{{selectedMix.mix_name}}</span>
       <span class="mixLength" *ngIf="selectedMix">{{apiService.convertMillisecondsToDigitalClock(selectedMix.length)}}</span>
