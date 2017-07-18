@@ -1,89 +1,93 @@
-<div class="row">
-  <div class="col-sm-1"></div>
-<div class="col-sm-4 createMix">
-  <h2>CREATE_YOUR_OWN_MIX</h2>
-  <form #createForm="ngForm"
-        (ngSubmit)="onCreate(createForm.value)">
-  <div class="form-group">
-    <label class="forName">MIX_NAME</label>
-    <input type="text"
-           class="form-control"
-           required
-           name="createMixName"
-           [(ngModel)]="createMixName">
-    <span class="star">*</span>
-  </div>
-  <div class="form-group">
-    <label class="forCreator">CREATOR</label>
-    <input type="text"
-           class="form-control"
-           required
-           name="creator"
-           [(ngModel)]="creator">
-    <span class="star">*</span>
-  </div>
-  <div class="form-group">
-    <label class="forTrackId1">#1_TRACK_ID</label>
-    <input type="number"
-           class="form-control"
-           required
-           min="1"
-           max="9"
-           onkeypress="return event.charCode >= 48 && event.charCode <= 57"
-           name="trackId1"
-           placeholder="Enter number from 1 to 9"
-           [(ngModel)]="trackId1">
-    <span class="star">*</span>
-  </div>
-  <div class="form-group">
-    <label class="forTrackId2">#2_TRACK_ID</label>
-    <input type="number"
-           class="form-control"
-           required
-           min="1"
-           max="9"
-           onkeypress="return event.charCode >= 48 && event.charCode <= 57"
-           name="trackId2"
-           placeholder="Enter number from 1 to 9"
-           [(ngModel)]="trackId2">
-    <span class="star">*</span>
-  </div>
-  <div class="form-group">
-    <label class="forTrackId3">#3_TRACK_ID</label>
-    <input type="number"
-           class="form-control"
-           required
-           min="1"
-           max="9"
-           onkeypress="return event.charCode >= 48 && event.charCode <= 57"
-           name="trackId3"
-           placeholder="Enter number from 1 to 9"
-           [(ngModel)]="trackId3">
-    <span class="star">*</span>
-    <span class="label label-info" [innerHTML]="alertCreated"></span>
-    <span class="label label-danger" [innerHTML]="alertNotCreated"></span>
-  </div>
-  <input class="btn btn-default launching" type="submit" value="Create" [disabled]="!createForm.form.valid">
-</form>
-</div>
-  <div class="col-sm-2"></div>
-<div class="col-sm-4 deleteMix">
-  <h2>DROP_MIX :(</h2>
-  <form #deleteForm="ngForm"
-        (ngSubmit)="onDelete(deleteForm.value)">
+<div *ngIf="!isErrorOccurred">
+  <div class="row">
+    <div class="col-sm-1"></div>
+  <div class="col-sm-5 createMix">
+    <h2>CREATE_YOUR_OWN_MIX <span class="glyphicon glyphicon-thumbs-up"></span></h2>
+    <form #createForm="ngForm"
+          (ngSubmit)="onCreate(createForm.value)">
     <div class="form-group">
       <label class="forName">MIX_NAME</label>
-      <select name="deleteMixName" [(ngModel)]="deleteMixName">
-        <option value="" disabled>-- Select mix --</option>
-        <option *ngFor="let mix of allMixes">
-          {{mix.mix_name}}
-        </option>
-      </select>
+      <input type="text"
+             class="form-control"
+             required
+             name="createMixName"
+             [(ngModel)]="createMixName">
       <span class="star">*</span>
-      <span class="label label-danger" [innerHTML]="alertDeleted"></span>
     </div>
-    <input class="btn btn-default launching" type="submit" value="Delete">
+    <div class="form-group">
+      <label class="forCreator">CREATOR</label>
+      <input type="text"
+             class="form-control"
+             required
+             name="creator"
+             [(ngModel)]="creator">
+      <span class="star">*</span>
+    </div>
+    <div class="form-group">
+      <label class="forTrackId1">#1_TRACK_ID</label>
+      <input type="number"
+             class="form-control"
+             required
+             min="1"
+             max="9"
+             onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+             name="trackId1"
+             placeholder="Enter number from 1 to 9"
+             [(ngModel)]="trackId1">
+      <span class="star">*</span>
+    </div>
+    <div class="form-group">
+      <label class="forTrackId2">#2_TRACK_ID</label>
+      <input type="number"
+             class="form-control"
+             required
+             min="1"
+             max="9"
+             onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+             name="trackId2"
+             placeholder="Enter number from 1 to 9"
+             [(ngModel)]="trackId2">
+      <span class="star">*</span>
+    </div>
+    <div class="form-group">
+      <label class="forTrackId3">#3_TRACK_ID</label>
+      <input type="number"
+             class="form-control"
+             required
+             min="1"
+             max="9"
+             onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+             name="trackId3"
+             placeholder="Enter number from 1 to 9"
+             [(ngModel)]="trackId3">
+      <span class="star">*</span>
+      <span class="label label-info" [innerHTML]="alertCreated"></span>
+      <span class="label label-danger" [innerHTML]="alertNotCreated"></span>
+    </div>
+    <input class="btn btn-default launching" type="submit" value="Create" [disabled]="!createForm.form.valid">
   </form>
+  </div>
+    <div class="col-sm-1"></div>
+  <div class="col-sm-5 deleteMix">
+    <h2>DROP_MIX <span class="glyphicon glyphicon-thumbs-down"></span></h2>
+    <form #deleteForm="ngForm"
+          (ngSubmit)="onDelete(deleteForm.value)">
+      <div class="form-group">
+        <label class="forName">MIX_NAME</label>
+        <select name="deleteMixName" [(ngModel)]="deleteMixName">
+          <option value="" disabled>-- Select mix --</option>
+          <option *ngFor="let mix of allMixes">
+            {{mix.mix_name}}
+          </option>
+        </select>
+        <span class="star">*</span>
+        <span class="label label-danger" [innerHTML]="alertDeleted"></span>
+      </div>
+      <input class="btn btn-default launching" type="submit" value="Delete">
+    </form>
+  </div>
+    <div class="col-sm-1"></div>
+  </div>
 </div>
-  <div class="col-sm-1"></div>
-</div>
+<p class="error" *ngIf="isErrorOccurred">Server is too busy, please try later.</p>
+

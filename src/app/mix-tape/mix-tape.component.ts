@@ -17,6 +17,7 @@ export class MixTapeComponent implements OnInit {
   currentTrack: Track;
   whichTrackPlay: number;
   pausedTrack: boolean = false;
+  isErrorOccurred:boolean;
 
   constructor(private apiService: ApiService, private currentPlayedTrack: youTubePlayerService) {
     this.currentPlayedTrack.idSet('MwSkC85TDgY');
@@ -32,11 +33,18 @@ export class MixTapeComponent implements OnInit {
         else {
           this.selectedMix = this.relatedMixes[3];
         }
-
+        this.isErrorOccurred = false;
         this.apiService.getTracksByMixName(this.selectedMix.mix_name)
           .then((tracks: Track[]) => {
             this.selectedTracks = tracks;
-          });
+            this.isErrorOccurred = false;
+          }).catch(err => {
+          console.log(`error when trying to connect to server ${err}`);
+          this.isErrorOccurred = true;
+        });
+    }).catch(err => {
+      console.log(`error when trying to connect to server ${err}`);
+      this.isErrorOccurred = true;
     });
     this.whichTrackPlay = -1;
   }

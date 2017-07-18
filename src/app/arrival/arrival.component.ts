@@ -12,7 +12,8 @@ export class ArrivalComponent implements OnInit {
 
   allMixes: Mix[];
   randomTracks: Track[];
-  isSelectedDifined = false;
+  isSelectedDefined = false;
+  isErrorOccurred: boolean = false;
   selectedTrack: Track;
 
   constructor(private apiService: ApiService) { }
@@ -20,13 +21,21 @@ export class ArrivalComponent implements OnInit {
     this.apiService.getAllMixes()
       .then((mixes: Mix[]) => {
         this.allMixes = mixes;
+        this.isErrorOccurred = false;
+    }).catch(err => {
+      console.log(`error when trying to connect to server ${err}`);
+      this.isErrorOccurred = true;
     });
     this.apiService.getRandomTracks(7)
       .then((tracks: Track[]) => {
         this.randomTracks = tracks;
         this.selectedTrack = this.randomTracks[0];
-        this.isSelectedDifined = true;
-      });
+        this.isSelectedDefined = true;
+        this.isErrorOccurred = false;
+      }).catch(err => {
+      console.log(`error when trying to connect to server ${err}`);
+      this.isErrorOccurred = true;
+    });
   }
   onSelect(selectedMix: Mix) {
     this.apiService.selectedMix = selectedMix;

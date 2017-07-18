@@ -14,3 +14,10 @@ body{
   /*background-position: center center;*/
   font-family: 'OCR A Extended';
 }
+.error {
+  margin-top: 5px;
+  background: #08194d;
+  opacity: 0.6;
+  color: #ff0000;
+  font-size: 42px;
+}
