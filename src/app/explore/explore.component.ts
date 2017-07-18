@@ -48,28 +48,21 @@ export class ExploreComponent implements OnInit {
     this.ngOnInit();
   }
   onCreate(val){
-
     this.checkFormValidity(val);
 
     if(this.isFormValid){
       this.createMix(val.createMixName,val.creator,val.trackId1,val.trackId2,val.trackId3);
-      this.successMsg(val);
+      this.alertNotCreated= '';
+      this.alertCreated=`Success: <i>${val.createMixName}</i> was Created`;
     }else {
-      this.failureMsg(val);
+      this.alertCreated='';
+      this.alertNotCreated=`Error: <i>${val.createMixName}</i> not Created`;
     }
   }
   checkFormValidity(val:any) {
-    if((val.tlackId1 >= 1 && val.trackId1 < 10) && (val.trackId2 >= 1 && val.trackId2 < 10)
+    if((val.trackId1 >= 1 && val.trackId1 < 10) && (val.trackId2 >= 1 && val.trackId2 < 10)
       && (val.trackId3 >= 1 && val.trackId3 < 10)) {
       this.isFormValid = true;
     }
-  }
-  successMsg(val:any){
-    this.alertNotCreated= '';
-    this.alertCreated=`Success: <i>${val.createMixName}</i> was Created`;
-  }
-  failureMsg(val:any){
-    this.alertCreated='';
-    this.alertNotCreated=`Error: <i>${val.createMixName}</i> not Created`;
   }
 }
