@@ -20,17 +20,15 @@ export class ExploreComponent implements OnInit {
         this.allMixes = mixes;
       });
   }
-  private deletedMix(mix) {
-    this.apiService.deleteMix(mix)
-      .then()
-  }
+
   onDelete(val) {
-    this.deletedMix(val.deleteMixName);
+    this.apiService.deleteMix(val.deleteMixName);
+    this.ngOnInit();
     this.alertDeleted=`Success: <i>${val.deleteMixName}</i> was Deleted`;
   }
   private createMix(name, creator, track1, track2, track3){
-    this.apiService.createMix(name, creator, track1, track2, track3)
-      .then()
+    this.apiService.createMix(name, creator, track1, track2, track3);
+    this.ngOnInit();
   }
   onCreate(val){
     let count = 0;
