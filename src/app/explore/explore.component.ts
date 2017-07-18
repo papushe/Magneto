@@ -12,6 +12,7 @@ export class ExploreComponent implements OnInit {
   alertDeleted: string = '';
   alertCreated: string = '';
   alertNotCreated: string = '';
+  isFormValid: boolean;
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
@@ -31,25 +32,22 @@ export class ExploreComponent implements OnInit {
     this.ngOnInit();
   }
   onCreate(val){
-    let count = 0;
-    for(let i = 1; i<=9;i++){
-      if(val.trackId1 === i){
-        count++;
-      }
-      if(val.trackId2 === i){
-        count++;
-      }
-      if(val.trackId3 === i){
-        count++;
-      }
-    }
-    if(count === 3){
+
+    this.checkFormValidity(val);
+
+    if(this.isFormValid){
       this.createMix(val.createMixName,val.creator,val.trackId1,val.trackId2,val.trackId3);
       this.alertNotCreated= '';
       this.alertCreated=`Success: <i>${val.createMixName}</i> was Created`;
     }else {
       this.alertCreated='';
       this.alertNotCreated=`Error: <i>${val.createMixName}</i> not Created`;
+    }
+  }
+  checkFormValidity(val:any) {
+    if((val.trackId1 >= 1 && val.trackId1 < 10) && (val.trackId2 >= 1 && val.trackId2 < 10)
+      && (val.trackId3 >= 1 && val.trackId3 < 10)) {
+      this.isFormValid = true;
     }
   }
 }
