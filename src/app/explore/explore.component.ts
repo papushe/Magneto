@@ -13,22 +13,38 @@ export class ExploreComponent implements OnInit {
   alertCreated: string = '';
   alertNotCreated: string = '';
   isFormValid: boolean;
+  isErrorOccurred:boolean = false;
+
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
     this.apiService.getAllMixes()
       .then((mixes: Mix[]) => {
         this.allMixes = mixes;
-      });
+        this.isErrorOccurred = false;
+      }).catch((err => {
+      console.log(`error when trying to connect to server ${err}`);
+      this.isErrorOccurred = true;
+      }))
   }
 
   onDelete(val) {
-    this.apiService.deleteMix(val.deleteMixName);
+    this.apiService.deleteMix(val.deleteMixName).then(() => {this.isErrorOccurred = false;})
+      .catch(err => {
+        console.log(`error when trying to connect to server ${err}`);
+        this.isErrorOccurred = true;
+        this.alertDeleted=`Failure: <i>${val.deleteMixName}</i> was not Deleted`;
+
+      });
     this.ngOnInit();
     this.alertDeleted=`Success: <i>${val.deleteMixName}</i> was Deleted`;
   }
   private createMix(name, creator, track1, track2, track3){
-    this.apiService.createMix(name, creator, track1, track2, track3);
+    this.apiService.createMix(name, creator, track1, track2, track3).then(() => {this.isErrorOccurred = false;})
+      .catch(err => {
+        console.log(`error when trying to connect to server ${err}`);
+        this.isErrorOccurred = true;
+      });
     this.ngOnInit();
   }
   onCreate(val){
@@ -37,17 +53,23 @@ export class ExploreComponent implements OnInit {
 
     if(this.isFormValid){
       this.createMix(val.createMixName,val.creator,val.trackId1,val.trackId2,val.trackId3);
-      this.alertNotCreated= '';
-      this.alertCreated=`Success: <i>${val.createMixName}</i> was Created`;
+      this.successMsg(val);
     }else {
-      this.alertCreated='';
-      this.alertNotCreated=`Error: <i>${val.createMixName}</i> not Created`;
+      this.failureMsg(val);
     }
   }
   checkFormValidity(val:any) {
-    if((val.trackId1 >= 1 && val.trackId1 < 10) && (val.trackId2 >= 1 && val.trackId2 < 10)
+    if((val.tlackId1 >= 1 && val.trackId1 < 10) && (val.trackId2 >= 1 && val.trackId2 < 10)
       && (val.trackId3 >= 1 && val.trackId3 < 10)) {
       this.isFormValid = true;
     }
+  }
+  successMsg(val:any){
+    this.alertNotCreated= '';
+    this.alertCreated=`Success: <i>${val.createMixName}</i> was Created`;
+  }
+  failureMsg(val:any){
+    this.alertCreated='';
+    this.alertNotCreated=`Error: <i>${val.createMixName}</i> not Created`;
   }
 }

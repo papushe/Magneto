@@ -1,28 +1,32 @@
-<div class="col-md-8" id="content">
-  <ul>
-    <li *ngFor="let mix of allMixes" class="mixes">
-      <a routerLink="/mix-tape" (click)="onSelect(mix)">
-      <img class="mixImg" [src]="mix.img_src">
-        <p class="mixDetails">
-          <span class="mixName">{{mix.mix_name | uppercase}}</span>
-          <span class="length">{{apiService.convertMillisecondsToDigitalClock(mix.length)}}</span>
-          <span class="mixBackground"></span>
+  <div *ngIf="!isErrorOccurred">
+  <div class="col-md-8" id="content">
+    <ul>
+      <li *ngFor="let mix of allMixes" class="mixes">
+        <a routerLink="/mix-tape" (click)="onSelect(mix)">
+        <img class="mixImg" [src]="mix.img_src">
+          <p class="mixDetails">
+            <span class="mixName">{{mix.mix_name | uppercase}}</span>
+            <span class="length">{{apiService.convertMillisecondsToDigitalClock(mix.length)}}</span>
+            <span class="mixBackground"></span>
+          </p>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-3 randomTracksWrapper">
+    <h5 *ngIf="isSelectedDefined"><span class="star">*</span>{{selectedTrack.creator}}</h5><h4>RANDOM_TRACKS</h4>
+      <img *ngIf="isSelectedDefined" [src]="selectedTrack.img_src" class="creator">
+    <ul>
+      <li  *ngFor="let track of randomTracks" class="randomTracks">
+        <p>
+          <span class="trackLength">{{apiService.convertMillisecondsToDigitalClock(track.length)}}</span>
+          <span class="trackCreator">{{track.creator}}</span>
+          <span class="trackName">{{track.track_name}}</span>
         </p>
-      </a>
-    </li>
-  </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-1"></div>
 </div>
-<div class="col-md-3 randomTracksWrapper">
-  <h5 *ngIf="isSelectedDifined"><span class="star">*</span>{{selectedTrack.creator}}</h5><h4>RANDOM_TRACKS</h4>
-    <img *ngIf="isSelectedDifined" [src]="selectedTrack.img_src" class="creator">
-  <ul>
-    <li  *ngFor="let track of randomTracks" class="randomTracks">
-      <p>
-        <span class="trackLength">{{apiService.convertMillisecondsToDigitalClock(track.length)}}</span>
-        <span class="trackCreator">{{track.creator}}</span>
-        <span class="trackName">{{track.track_name}}</span>
-      </p>
-    </li>
-  </ul>
-</div>
-<div class="col-md-1"></div>
+<p class="error" *ngIf="isErrorOccurred">Server is too busy, please try later.</p>
+

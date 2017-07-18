@@ -16,49 +16,49 @@ export class ApiService {
     return this._http.get(`${this.baseUrl}/getAllMixes`)
       .toPromise()
       .then(response => response.json() as Mix[])
-      .catch(err => err.json());
+      .catch(err => err);
   }
 
   getAllTracks(): Promise<Track[]> {
     return this._http.get(`${this.baseUrl}/getAllTracks`)
       .toPromise()
       .then(response => response.json() as Track[])
-      .catch(err => err.json());
+      .catch(err => err);
   }
 
   getTracksByMixName(mixName): Promise<Track[]> {
     return this._http.get(`${this.baseUrl}/get/${mixName}`)
       .toPromise()
       .then(response => response.json() as Track[])
-      .catch(err => err.json());
+      .catch(err => err);
   }
 
   getRandomTracks(trackCount: number): Promise<Track[]> {
     return this._http.get(`${this.baseUrl}/getRandomTracks/${trackCount}`)
       .toPromise()
       .then(response => response.json() as Track[])
-      .catch(err => err.json());
+      .catch(err => err);
   }
 
   getRandomMixes(mixCount: number): Promise<Mix[]> {
     return this._http.get(`${this.baseUrl}/getRandomMixes/${mixCount}`)
       .toPromise()
       .then(response => response.json() as Mix[])
-      .catch(err => err.json());
+      .catch(err => err);
   }
 
   deleteMix(mixName: string): Promise<Mix[]> {
     return this._http.get(`${this.baseUrl}/dropMix/${mixName}`)
       .toPromise()
       .then(response => response.json() as Mix[])
-      .catch(err => err.json());
+      .catch(err => err);
   }
 
   createMix(mixName: string, creator: string, track1: number, track2: number, track3: number): Promise<Mix[]> {
     return this._http.get(`${this.baseUrl}/createNewMix/${mixName}/${creator}/${track1}/${track2}/${track3}`)
       .toPromise()
       .then(response => response.json() as Mix[])
-      .catch(err => err.json());
+      .catch(err => err);
   }
 
 
