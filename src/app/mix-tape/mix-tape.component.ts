@@ -14,6 +14,7 @@ export class MixTapeComponent implements OnInit {
   relatedMixes: Mix[];
   selectedMix: Mix;
   selectedTracks: Track[];
+  currentTrack: Track;
   whichTrackPlay: number;
   pausedTrack: boolean = false;
 
@@ -58,9 +59,9 @@ export class MixTapeComponent implements OnInit {
     this.startOver();
     this.pause();
   }
-  onTrackSelected(track: string) {
-    this.currentPlayedTrack.loadVideo(track);
-    this.play();
+  onTrackSelected(index: number) {
+    this.whichTrackPlay = index-1;
+    this.trackResolver();
   }
   onSelect(selectedMix: Mix) {
     this.apiService.selectedMix = selectedMix;
@@ -73,7 +74,7 @@ export class MixTapeComponent implements OnInit {
     else {
       this.whichTrackPlay++;
     }
+    this.currentTrack =  this.selectedTracks[this.whichTrackPlay];
     this.currentPlayedTrack.loadVideo(this.selectedTracks[this.whichTrackPlay].src);
   }
-
 }

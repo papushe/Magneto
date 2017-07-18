@@ -11,6 +11,9 @@
       <span class="mixHeader" *ngIf="selectedMix">#{{selectedMix.mix_name}}</span>
       <span class="mixLength" *ngIf="selectedMix">
         {{apiService.convertMillisecondsToDigitalClock(currentPlayedTrack.getMilliSeconds())}}</span>
+      <span class="mixLength">/</span>
+      <span class="mixLength" *ngIf="currentTrack">
+        {{apiService.convertMillisecondsToDigitalClock(currentTrack.length)}}</span>
     </div>
   </div>
   <div class="row">
@@ -27,8 +30,8 @@
         <h5 class="trackTitles">RANK</h5>
       </div>
       <ul>
-          <li *ngFor="let selectTrack of selectedTracks">
-            <a href="#/mix-tape" (click)="onTrackSelected(selectTrack.src)">
+          <li *ngFor="let selectTrack of selectedTracks; let i = index;">
+            <a href="#/mix-tape" (click)="onTrackSelected(i)">
               <span class="selectedTracks trackLength">{{apiService.convertMillisecondsToDigitalClock(selectTrack.length)}}</span>
               <span class="selectedTracks trackCreator">{{selectTrack.creator}}</span>
               <span class="selectedTracks trackName">{{selectTrack.track_name}}</span>
