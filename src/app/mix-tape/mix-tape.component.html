@@ -1,7 +1,7 @@
 <div class="col-md-10" id="content">
   <div class="row playerButtonsRow">
     <div class="col-md-1"></div>
-    <div class="col-md-7 playerButtons">
+    <div class="col-md-8 playerButtons">
       <button class="playerButton pause" (click)="pause()"></button>
       <button class="playerButton play" (click)="play()"></button>
       <button class="playerButton stop" (click)="stop()"></button>
@@ -11,7 +11,7 @@
       <span class="mixHeader" *ngIf="selectedMix">#{{selectedMix.mix_name}}</span>
       <span class="mixLength" *ngIf="selectedMix">
         {{apiService.convertMillisecondsToDigitalClock(currentPlayedTrack.getMilliSeconds())}}</span>
-      <span class="mixLength">/</span>
+      <span class="mixLength" *ngIf="currentTrack">/</span>
       <span class="mixLength" *ngIf="currentTrack">
         {{apiService.convertMillisecondsToDigitalClock(currentTrack.length)}}</span>
     </div>
