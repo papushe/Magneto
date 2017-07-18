@@ -50,13 +50,13 @@ export class ExploreComponent implements OnInit {
         console.log(`error when trying to connect to server ${err}`);
         this.isErrorOccurred = true;
       });
-    this.ngOnInit();
   }
   onCreate(val){
     this.checkFormValidity(val);
 
     if(this.isFormValid){
       this.createMix(val.createMixName,val.creator,val.trackId1,val.trackId2,val.trackId3);
+      this.ngOnInit();
       this.alertNotCreated= '';
       this.alertCreated=`Success: <i>${val.createMixName}</i> was Created`;
     }else {
