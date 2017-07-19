@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Mix } from '../services/Mix';
 import { Track } from '../services/Track';
 import { ApiService } from '../services/api.service';
 import { youTubePlayerService } from '../services/youtube.player';
+import { TimerComponent } from  '../timer/timer.component';
 
 @Component({
   selector: 'app-mix-tape',
   templateUrl: './mix-tape.component.html',
-  styleUrls: ['./mix-tape.component.css']
+  styleUrls: ['./mix-tape.component.css'],
 })
 export class MixTapeComponent implements OnInit {
 
@@ -18,6 +19,7 @@ export class MixTapeComponent implements OnInit {
   whichTrackPlay: number;
   pausedTrack: boolean = false;
   isErrorOccurred:boolean;
+  timerState: string;
 
   constructor(private apiService: ApiService, private currentPlayedTrack: youTubePlayerService) {
     this.currentPlayedTrack.idSet('MwSkC85TDgY');
@@ -51,11 +53,13 @@ export class MixTapeComponent implements OnInit {
   pause() {
     this.currentPlayedTrack.pauseVideo();
     this.pausedTrack = true;
+    this.timerState = 'pause'
   }
   play() {
     if(!this.pausedTrack) {this.trackResolver();}
     this.currentPlayedTrack.playVideo();
     this.pausedTrack = false;
+    this.timerState = 'start'
   }
   startOver() {
     this.currentPlayedTrack.startOver();
@@ -66,6 +70,7 @@ export class MixTapeComponent implements OnInit {
   stop() {
     this.startOver();
     this.pause();
+    this.timerState = 'stop'
   }
   onTrackSelected(index: number) {
     this.whichTrackPlay = index-1;
@@ -86,6 +91,6 @@ export class MixTapeComponent implements OnInit {
     this.currentPlayedTrack.loadVideo(this.selectedTracks[this.whichTrackPlay].src);
   }
   getTime(ms) {
-    return this.apiService.convertMillisecondsToDigitalClock(ms)
+    return this.apiService.convertMillisecondsToDigitalClock(ms);
   }
 }

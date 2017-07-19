@@ -16,6 +16,7 @@ import { youTubePlayerService } from './services/youtube.player';
 import {AppRoutingModule} from './app-routing.module';
 import { StartPageComponent } from './start-page/start-page.component';
 import { WelcomeFormComponent } from './welcome-form/welcome-form.component';
+import { TimerComponent } from './timer/timer.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { WelcomeFormComponent } from './welcome-form/welcome-form.component';
     AboutComponent,
     ExploreComponent,
     StartPageComponent,
-    WelcomeFormComponent
+    WelcomeFormComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,
