@@ -50,4 +50,7 @@ export class ArrivalComponent implements OnInit {
   onSelect(selectedMix: Mix) {
     this.apiService.selectedMix = selectedMix;
   }
+  getTime(ms) {
+    return this.apiService.convertMillisecondsToDigitalClock(ms);
+  }
 }

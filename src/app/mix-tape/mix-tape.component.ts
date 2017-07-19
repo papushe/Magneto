@@ -82,7 +82,10 @@ export class MixTapeComponent implements OnInit {
     else {
       this.whichTrackPlay++;
     }
-    this.currentTrack =  this.selectedTracks[this.whichTrackPlay];
+    this.currentTrack = this.selectedTracks[this.whichTrackPlay];
     this.currentPlayedTrack.loadVideo(this.selectedTracks[this.whichTrackPlay].src);
+  }
+  getTime(ms) {
+    return this.apiService.convertMillisecondsToDigitalClock(ms)
   }
 }
