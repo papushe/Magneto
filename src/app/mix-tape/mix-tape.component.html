@@ -33,7 +33,7 @@
           <h5 class="trackTitles">RANK</h5>
         </div>
         <ul>
-            <li *ngFor="let selectTrack of selectedTracks; let i = index;">
+            <li class="box" *ngFor="let selectTrack of selectedTracks; let i = index;">
               <a href="#/mix-tape" (click)="onTrackSelected(i)">
                 <span class="selectedTracks trackLength">{{getTime(selectTrack.length)}}</span>
                 <span class="selectedTracks trackCreator">{{selectTrack.creator}}</span>

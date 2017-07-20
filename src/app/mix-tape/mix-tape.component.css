@@ -149,3 +149,13 @@ ul{
   width: 43px;
   height: 43px;
 }
+.box{
+  background: transparent;
+  -webkit-transition: background 3s;
+}
+
+.box:hover{
+  background: #08194d;
+  opacity: 0.6;
+  -webkit-transition: background 1s;
+}
