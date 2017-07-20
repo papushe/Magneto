@@ -12,6 +12,7 @@ import { youTubePlayerService } from '../services/youtube.player';
 export class MixTapeComponent implements OnInit {
 
   relatedMixes: Mix[];
+  timer: number;
   selectedMix: Mix;
   selectedTracks: Track[];
   currentTrack: Track;
@@ -19,6 +20,7 @@ export class MixTapeComponent implements OnInit {
   pausedTrack: boolean = false;
   isErrorOccurred:boolean;
   randomNumber: number = 0;
+  isMuted:boolean = false;
 
   constructor(private apiService: ApiService, private currentPlayedTrack: youTubePlayerService) {
   }
@@ -68,6 +70,11 @@ export class MixTapeComponent implements OnInit {
     this.startOver();
     this.pause();
   }
+  muteToggle() {
+    if (this.isMuted)  this.currentPlayedTrack.unMute();
+    else this.currentPlayedTrack.mute();
+    this.isMuted = !this.isMuted;
+  }
   onTrackSelected(index: number) {
     this.whichTrackPlay = index-1;
     this.trackResolver();
@@ -87,6 +94,10 @@ export class MixTapeComponent implements OnInit {
     this.currentPlayedTrack.loadVideo(this.selectedTracks[this.whichTrackPlay].src);
   }
   getTime(ms) {
-    return this.apiService.convertMillisecondsToDigitalClock(ms)
+    return this.apiService.convertMillisecondsToDigitalClock(ms);
+  }
+  getCurrentPlayedTime() {
+    this.timer = this.currentPlayedTrack.getDuration();
+    return this.getTime(this.timer);
   }
 }

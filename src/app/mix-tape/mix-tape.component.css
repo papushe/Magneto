@@ -113,7 +113,7 @@ ul{
   background: #062171;
   opacity: 0.7;
 }
-.mixHeader, .mixLength{
+.mixHeader, .mixLength, .mute{
   color: red;
   vertical-align: 12px;
   font-size: 20px;
@@ -136,6 +136,7 @@ ul{
   font-size: 40px;
 }
 .volume{
+  cursor: pointer;
   background: url("../../assets/volume.png") no-repeat;
   width: 43px;
   height: 43px;

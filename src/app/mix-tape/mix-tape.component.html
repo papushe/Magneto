@@ -10,15 +10,16 @@
       <img class="mixImg" *ngIf="selectedMix" [src]="selectedMix.img_src">
       <span class="mixHeader" *ngIf="selectedMix">#{{selectedMix.mix_name}}</span>
       <span class="mixLength" *ngIf="selectedMix">
-        {{getTime(currentPlayedTrack.getMilliSeconds())}}</span>
+        {{getCurrentPlayedTime()}}</span>
       <span class="mixLength" *ngIf="currentTrack">/</span>
       <span class="mixLength" *ngIf="currentTrack">
         {{getTime(currentTrack.length)}}</span>
+      <span *ngIf="isMuted" class="mute">MUTED</span>
     </div>
   </div>
   <div class="row">
     <div class="col-md-1"></div>
-    <div class="volume col-md-1"></div>
+    <div class="volume col-md-1" (click)="muteToggle()"></div>
     <div class="col-md-10 progressBar"></div>
   </div>
   <div class="row">
@@ -33,7 +34,7 @@
       <ul>
           <li *ngFor="let selectTrack of selectedTracks; let i = index;">
             <a href="#/mix-tape" (click)="onTrackSelected(i)">
-              <span class="selectedTracks trackLength">{{apiService.convertMillisecondsToDigitalClock(selectTrack.length)}}</span>
+              <span class="selectedTracks trackLength">{{getTime(selectTrack.length)}}</span>
               <span class="selectedTracks trackCreator">{{selectTrack.creator}}</span>
               <span class="selectedTracks trackName">{{selectTrack.track_name}}</span>
               <span class="selectedTracks">{{selectTrack.track_id}}</span>

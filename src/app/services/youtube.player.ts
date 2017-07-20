@@ -29,9 +29,15 @@ export class youTubePlayerService {
     this.player.stopVideo();
     this.player.playVideo();
   }
-  getMilliSeconds() {
+  mute() {
+    this.player.mute();
+  }
+  unMute() {
+    this.player.unMute();
+  }
+  getDuration() {
     if (this.player && this.player.getPlayerState() > 0)
-     return this.player.getCurrentTime() * 1000;
+     return this.player.getCurrentTime()*1000;
     else return 0;
   }
 }
