@@ -40,7 +40,14 @@
           </li>
       </ul>
     </div>
-    <div class="col-md-5"></div>
+    <div class="col-md-5">
+      <div class="col-md-6">
+        <img *ngIf="selectedTracks" [src]="selectedTracks[0].img_src">
+      </div>
+      <div class="col-md-6">
+        <p *ngIf="selectedTracks" class="description">{{selectedTracks[0].description}}</p>
+      </div>
+    </div>
     <youtube-player hidden
                     *ngIf="currentPlayedTrack"
                     [videoId]="currentPlayedTrack.id"

@@ -66,7 +66,6 @@ export class ExploreComponent implements OnInit {
   }
   checkFormValidity(val) {
     if((val.trackId1 >= 1 && val.trackId1 < 10) && (val.trackId2 >= 1 && val.trackId2 < 10) && (val.trackId3 >= 1 && val.trackId3 < 10)) {
-      console.log("true");
       this.isFormValid = true;
     }
   }

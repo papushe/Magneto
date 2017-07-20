@@ -11,6 +11,5 @@ export class StartPageComponent implements OnInit {
   constructor(@Inject(DOCUMENT) private document: any) { }
 
   ngOnInit() {
-    console.log(this.document.location.hash);
   }
 }
