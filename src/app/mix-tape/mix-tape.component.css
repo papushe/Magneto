@@ -124,6 +124,14 @@ ul{
   display: inline-block;
   vertical-align: 2px;
 }
+@keyframes flickerAnimation {
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+.animate-flicker {
+  animation: flickerAnimation 1.3s infinite;
+}
 .description{
   color: #00ffe9;
   background: none;
