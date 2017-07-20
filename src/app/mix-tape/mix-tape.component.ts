@@ -31,6 +31,9 @@ export class MixTapeComponent implements OnInit {
     this.currentPlayedTrack.idSet('MwSkC85TDgY');
     this.apiService.getRandomMixes(4)
       .then((mixes: Mix[]) => {
+        if(mixes.constructor.name === 'Response') {
+          this.isErrorOccurred = true;
+        }
         this.relatedMixes = mixes;
         if(this.apiService.selectedMix ) {
           this.selectedMix = this.apiService.selectedMix
@@ -41,6 +44,9 @@ export class MixTapeComponent implements OnInit {
         this.isErrorOccurred = false;
         this.apiService.getTracksByMixName(this.selectedMix.mix_name)
           .then((tracks: Track[]) => {
+            if(mixes.constructor.name === 'Response') {
+              this.isErrorOccurred = true;
+            }
             this.selectedTracks = tracks;
             this.isErrorOccurred = false;
           }).catch(err => {

@@ -1,82 +1,84 @@
-<div class="col-md-10" id="content">
-  <div class="row playerButtonsRow">
-    <div class="col-md-1"></div>
-    <div class="col-md-8 playerButtons">
-      <button class="playerButton pause" (click)="pause()"></button>
-      <button class="playerButton play" (click)="play()"></button>
-      <button class="playerButton stop" (click)="stop()"></button>
-      <button class="playerButton previous" (click)="startOver()"></button>
-      <button class="playerButton next" (click)="playNext()"></button>
-      <img class="mixImg" *ngIf="selectedMix" [src]="selectedMix.img_src">
-      <span class="mixHeader" *ngIf="selectedMix">#{{selectedMix.mix_name}}</span>
-      <span class="mixLength" *ngIf="selectedMix">
-        {{getCurrentPlayedTime()}}</span>
-      <span class="mixLength" *ngIf="currentTrack">/</span>
-      <span class="mixLength" *ngIf="currentTrack">
-        {{getTime(currentTrack.length)}}</span>
-      <span *ngIf="isMuted" class="mute ">MUTED</span>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-1"></div>
-    <div class="volume col-md-1" (click)="muteToggle()"></div>
-    <div class="col-md-10 progressBar"></div>
-  </div>
-  <div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-5 trackTitlesWrapper">
-      <div class="row trackTitlesWrapperRow">
-        <h5 class="trackTitles">TIME</h5>
-        <h5 class="trackTitles">ARTIST</h5>
-        <h5 class="trackTitles">TRACK</h5>
-        <h5 class="trackTitles">RANK</h5>
-      </div>
-      <ul>
-          <li *ngFor="let selectTrack of selectedTracks; let i = index;">
-            <a href="#/mix-tape" (click)="onTrackSelected(i)">
-              <span class="selectedTracks trackLength">{{getTime(selectTrack.length)}}</span>
-              <span class="selectedTracks trackCreator">{{selectTrack.creator}}</span>
-              <span class="selectedTracks trackName">{{selectTrack.track_name}}</span>
-              <span class="selectedTracks">{{selectTrack.track_id}}</span>
-            </a>
-          </li>
-      </ul>
-    </div>
-    <div class="col-md-5">
-      <div class="col-md-6">
-        <img *ngIf="selectedTracks" [src]="selectedTracks[randomNumber].img_src">
-      </div>
-      <div class="col-md-6">
-        <p *ngIf="selectedTracks" class="description">{{selectedTracks[randomNumber].description}}</p>
+<div *ngIf="!isErrorOccurred">
+  <div class="col-md-10" id="content">
+    <div class="row playerButtonsRow">
+      <div class="col-md-1"></div>
+      <div class="col-md-8 playerButtons">
+        <button class="playerButton pause" (click)="pause()"></button>
+        <button class="playerButton play" (click)="play()"></button>
+        <button class="playerButton stop" (click)="stop()"></button>
+        <button class="playerButton previous" (click)="startOver()"></button>
+        <button class="playerButton next" (click)="playNext()"></button>
+        <img class="mixImg" *ngIf="selectedMix" [src]="selectedMix.img_src">
+        <span class="mixHeader" *ngIf="selectedMix">#{{selectedMix.mix_name}}</span>
+        <span class="mixLength" *ngIf="selectedMix">
+          {{getCurrentPlayedTime()}}</span>
+        <span class="mixLength" *ngIf="currentTrack">/</span>
+        <span class="mixLength" *ngIf="currentTrack">
+          {{getTime(currentTrack.length)}}</span>
+        <span *ngIf="isMuted" class="mute ">MUTED</span>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="volume col-md-1" (click)="muteToggle()"></div>
+      <div class="col-md-10 progressBar"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-5 trackTitlesWrapper">
+        <div class="row trackTitlesWrapperRow">
+          <h5 class="trackTitles">TIME</h5>
+          <h5 class="trackTitles">ARTIST</h5>
+          <h5 class="trackTitles">TRACK</h5>
+          <h5 class="trackTitles">RANK</h5>
+        </div>
+        <ul>
+            <li *ngFor="let selectTrack of selectedTracks; let i = index;">
+              <a href="#/mix-tape" (click)="onTrackSelected(i)">
+                <span class="selectedTracks trackLength">{{getTime(selectTrack.length)}}</span>
+                <span class="selectedTracks trackCreator">{{selectTrack.creator}}</span>
+                <span class="selectedTracks trackName">{{selectTrack.track_name}}</span>
+                <span class="selectedTracks">{{selectTrack.track_id}}</span>
+              </a>
+            </li>
+        </ul>
+      </div>
+      <div class="col-md-5">
+        <div class="col-md-6">
+          <img *ngIf="selectedTracks" [src]="selectedTracks[randomNumber].img_src">
+        </div>
+        <div class="col-md-6">
+          <p *ngIf="selectedTracks" class="description">{{selectedTracks[randomNumber].description}}</p>
+        </div>
+      </div>
 
-    <youtube-player hidden
-                    *ngIf="currentPlayedTrack"
-                    [videoId]="currentPlayedTrack.id"
-                    (ready)="currentPlayedTrack.savePlayer($event)"
-                    (change)="currentPlayedTrack.onStateChange($event)">
-    </youtube-player>
+      <youtube-player hidden
+                      *ngIf="currentPlayedTrack"
+                      [videoId]="currentPlayedTrack.id"
+                      (ready)="currentPlayedTrack.savePlayer($event)"
+                      (change)="currentPlayedTrack.onStateChange($event)">
+      </youtube-player>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="hey col-md-6"><span>HEY</span>__collect your favorite tracks&artist for update</div>
+    </div>
   </div>
-  <div class="row">
-    <div class="col-md-1"></div>
-    <div class="hey col-md-6"><span>HEY</span>__collect your favorite tracks&artist for update</div>
+  <div class="col-md-2">
+    <h4 id="reletedMix">RELATED_MIX</h4>
+    <ul>
+      <li *ngFor="let mix of relatedMixes | slice:0:3" class="mixes">
+        <a routerLink="/mix-tape" (click)="onSelect(mix)">
+        <img [src]="mix.img_src">
+          <p>
+            <span class="mixName">{{mix.mix_name}}</span>
+            <span class="length">{{apiService.convertMillisecondsToDigitalClock(mix.length)}}</span>
+            <span class="mixBackground"></span>
+          </p>
+        </a>
+      </li>
+    </ul>
   </div>
-</div>
-<div class="col-md-2">
-  <h4 id="reletedMix">RELATED_MIX</h4>
-  <ul>
-    <li *ngFor="let mix of relatedMixes | slice:0:3" class="mixes">
-      <a routerLink="/mix-tape" (click)="onSelect(mix)">
-      <img [src]="mix.img_src">
-        <p>
-          <span class="mixName">{{mix.mix_name}}</span>
-          <span class="length">{{apiService.convertMillisecondsToDigitalClock(mix.length)}}</span>
-          <span class="mixBackground"></span>
-        </p>
-      </a>
-    </li>
-  </ul>
 </div>
 <p class="error" *ngIf="isErrorOccurred">Server is too busy, please try later.</p>
 <iframe *ngIf="isErrorOccurred" src="https://giphy.com/embed/sS8YbjrTzu4KI" width="480" height="319" frameBorder="0" class="giphy-embed"></iframe>
