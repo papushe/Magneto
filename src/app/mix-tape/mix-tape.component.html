@@ -10,10 +10,10 @@
       <img class="mixImg" *ngIf="selectedMix" [src]="selectedMix.img_src">
       <span class="mixHeader" *ngIf="selectedMix">#{{selectedMix.mix_name}}</span>
       <span class="mixLength" *ngIf="selectedMix">
-        {{apiService.convertMillisecondsToDigitalClock(currentPlayedTrack.getMilliSeconds())}}</span>
+        {{getTime(currentPlayedTrack.getMilliSeconds())}}</span>
       <span class="mixLength" *ngIf="currentTrack">/</span>
       <span class="mixLength" *ngIf="currentTrack">
-        {{apiService.convertMillisecondsToDigitalClock(currentTrack.length)}}</span>
+        {{getTime(currentTrack.length)}}</span>
     </div>
   </div>
   <div class="row">
