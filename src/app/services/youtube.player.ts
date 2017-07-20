@@ -6,8 +6,7 @@ export class youTubePlayerService {
   private player: YT.Player;
   private ytEvent: YT.PlayerEvent;
 
-  constructor() {
-  }
+  constructor(){}
   idSet(id){
     this.id = id;
   }

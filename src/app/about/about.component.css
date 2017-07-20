@@ -1,7 +1,8 @@
 .about {
-  margin-top: 5px;
   background: #08194d;
   opacity: 0.6;
   color: #ff0000;
   font-size: 22px;
+  display: block;
+  text-align: center;
 }

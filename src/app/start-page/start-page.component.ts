@@ -9,7 +9,5 @@ import { DOCUMENT } from '@angular/platform-browser';
 export class StartPageComponent implements OnInit {
 
   constructor(@Inject(DOCUMENT) private document: any) { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }
