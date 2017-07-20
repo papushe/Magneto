@@ -10,7 +10,7 @@
         <button class="playerButton next" (click)="playNext()"></button>
         <img class="mixImg" *ngIf="selectedMix" [src]="selectedMix.img_src">
         <span class="mixHeader" *ngIf="selectedMix">#{{selectedMix.mix_name}}</span>
-        <span class="mixLength" *ngIf="selectedMix">
+        <span class="mixLength" *ngIf="currentTrack">
           {{getCurrentPlayedTime()}}</span>
         <span class="mixLength" *ngIf="currentTrack">/</span>
         <span class="mixLength" *ngIf="currentTrack">
