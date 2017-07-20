@@ -141,3 +141,21 @@ input[type=submit]:disabled{
 .forMotherLand{
   padding-left: 13px;
 }
+.floating {
+  animation-name: float;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+@keyframes float {
+  0% {
+    transform: translate3d(0, 0, 0);
+    animation-timing-function: ease-in;
+  }
+  50% {
+    transform: translate3d(0, 10px, 0);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
