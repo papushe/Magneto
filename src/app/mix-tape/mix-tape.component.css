@@ -32,7 +32,7 @@ p{
   height: 10px;
 }
 .progressBar{
-  background: url("../../assets/progressBar2.png") no-repeat;
+  background: url("../../assets/progressBar.png") no-repeat;
   height: 51px;
   width: 75%;
 }

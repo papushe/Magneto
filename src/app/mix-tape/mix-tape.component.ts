@@ -18,12 +18,13 @@ export class MixTapeComponent implements OnInit {
   whichTrackPlay: number;
   pausedTrack: boolean = false;
   isErrorOccurred:boolean;
+  randomNumber: number = 0;
 
   constructor(private apiService: ApiService, private currentPlayedTrack: youTubePlayerService) {
-    this.currentPlayedTrack.idSet('MwSkC85TDgY');
   }
-
   ngOnInit() {
+    this.randomNumber = this.apiService.randomNumber();
+    this.currentPlayedTrack.idSet('MwSkC85TDgY');
     this.apiService.getRandomMixes(4)
       .then((mixes: Mix[]) => {
         this.relatedMixes = mixes;

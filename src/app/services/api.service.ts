@@ -69,4 +69,10 @@ export class ApiService {
     seconds = (seconds < 10) ? `0${seconds}` : seconds;
     return  minutes + ':' + seconds;
   }
+
+  randomNumber(){
+   return Math.floor(Math.random() * (3));
+  }
+
+
 }

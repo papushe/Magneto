@@ -35,17 +35,17 @@
               <span class="selectedTracks trackLength">{{apiService.convertMillisecondsToDigitalClock(selectTrack.length)}}</span>
               <span class="selectedTracks trackCreator">{{selectTrack.creator}}</span>
               <span class="selectedTracks trackName">{{selectTrack.track_name}}</span>
-              <span class="selectedTracks">01</span>
+              <span class="selectedTracks">{{selectTrack.track_id}}</span>
             </a>
           </li>
       </ul>
     </div>
     <div class="col-md-5">
       <div class="col-md-6">
-        <img *ngIf="selectedTracks" [src]="selectedTracks[0].img_src">
+        <img *ngIf="selectedTracks" [src]="selectedTracks[randomNumber].img_src">
       </div>
       <div class="col-md-6">
-        <p *ngIf="selectedTracks" class="description">{{selectedTracks[0].description}}</p>
+        <p *ngIf="selectedTracks" class="description">{{selectedTracks[randomNumber].description}}</p>
       </div>
     </div>
     <youtube-player hidden
