@@ -3,6 +3,8 @@ import { Mix } from '../services/Mix';
 import { Track } from '../services/Track';
 import { ApiService } from '../services/api.service';
 import { youTubePlayerService } from '../services/youtube.player';
+import {Observable} from 'rxjs/Rx';
+
 
 @Component({
   selector: 'app-mix-tape',
@@ -12,7 +14,7 @@ import { youTubePlayerService } from '../services/youtube.player';
 export class MixTapeComponent implements OnInit {
 
   relatedMixes: Mix[];
-  timer: number;
+  timer: any;
   selectedMix: Mix;
   selectedTracks: Track[];
   currentTrack: Track;
@@ -57,6 +59,8 @@ export class MixTapeComponent implements OnInit {
   }
   play() {
     if(!this.pausedTrack) {this.trackResolver();}
+    this.timer = Observable.timer(1000, 1000);
+    this.timer.subscribe(() => this.getCurrentPlayedTime());
     this.currentPlayedTrack.playVideo();
     this.pausedTrack = false;
   }
