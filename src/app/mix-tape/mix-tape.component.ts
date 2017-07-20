@@ -101,7 +101,6 @@ export class MixTapeComponent implements OnInit {
     return this.apiService.convertMillisecondsToDigitalClock(ms);
   }
   getCurrentPlayedTime() {
-    this.timer = this.currentPlayedTrack.getDuration();
-    return this.getTime(this.timer);
+    return this.getTime(this.currentPlayedTrack.getDuration());
   }
 }
