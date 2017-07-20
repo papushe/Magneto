@@ -40,4 +40,7 @@ export class youTubePlayerService {
      return this.player.getCurrentTime()*1000;
     else return 0;
   }
+  getState() {
+    return (this.player) ? this.player.getPlayerState() : undefined;
+  }
 }

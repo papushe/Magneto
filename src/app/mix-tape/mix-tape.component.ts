@@ -81,7 +81,7 @@ export class MixTapeComponent implements OnInit {
   }
   onTrackSelected(index: number) {
     this.whichTrackPlay = index-1;
-    this.trackResolver();
+    this.play();
   }
   onSelect(selectedMix: Mix) {
     this.apiService.selectedMix = selectedMix;
@@ -101,6 +101,7 @@ export class MixTapeComponent implements OnInit {
     return this.apiService.convertMillisecondsToDigitalClock(ms);
   }
   getCurrentPlayedTime() {
+    if (this.currentPlayedTrack != undefined && this.currentPlayedTrack.getState() === 0) this.play();
     return this.getTime(this.currentPlayedTrack.getDuration());
   }
 }

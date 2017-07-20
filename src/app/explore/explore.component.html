@@ -61,7 +61,7 @@
              placeholder="Enter number from 1 to 9"
              [(ngModel)]="trackId3">
       <span class="star">*</span>
-      <span class="label label-info" [innerHTML]="alertCreated"></span>
+      <span class="label label-success" [innerHTML]="alertCreated"></span>
       <span class="label label-danger" [innerHTML]="alertNotCreated"></span>
     </div>
     <input class="btn btn-default launching" type="submit" value="Create" [disabled]="!createForm.form.valid">
@@ -81,7 +81,7 @@
           </option>
         </select>
         <span class="star">*</span>
-        <span class="label label-danger deletedLabel" [innerHTML]="alertDeleted"></span>
+        <span class="label label-success deletedLabel" [innerHTML]="alertDeleted"></span>
       </div>
       <input class="btn btn-default launching" type="submit" value="Delete">
     </form>
