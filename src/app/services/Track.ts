@@ -8,4 +8,5 @@ export class Track {
   creator: string;
   src: string;
   img_src: string;
+  description: string;
 }

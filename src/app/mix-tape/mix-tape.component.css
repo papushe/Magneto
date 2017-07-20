@@ -124,3 +124,7 @@ ul{
   display: inline-block;
   vertical-align: 2px;
 }
+.description{
+  color: #00ffe9;
+  background: none;
+}

@@ -12,7 +12,7 @@ export class ExploreComponent implements OnInit {
   alertDeleted: string = '';
   alertCreated: string = '';
   alertNotCreated: string = '';
-  isFormValid: boolean;
+  isFormValid: boolean = false;
   isErrorOccurred:boolean = false;
 
   constructor(private apiService: ApiService) { }
@@ -40,7 +40,8 @@ export class ExploreComponent implements OnInit {
     this.alertDeleted=`Success: <i>${val.deleteMixName}</i> was Deleted`;
   }
   private createMix(name, creator, track1, track2, track3){
-    this.apiService.createMix(name, creator, track1, track2, track3).then(() => {this.isErrorOccurred = false;})
+    this.apiService.createMix(name, creator, track1, track2, track3)
+      .then(() => {this.isErrorOccurred = false;})
       .catch(err => {
         console.log(`error when trying to connect to server ${err}`);
         this.isErrorOccurred = true;
@@ -50,6 +51,7 @@ export class ExploreComponent implements OnInit {
   onCreate(val){
 
     this.checkFormValidity(val);
+    console.log(this.isFormValid);
 
     if(this.isFormValid){
       this.createMix(val.createMixName,val.creator,val.trackId1,val.trackId2,val.trackId3);
@@ -58,17 +60,17 @@ export class ExploreComponent implements OnInit {
       this.failureMsg(val);
     }
   }
-  checkFormValidity(val:any) {
-    if((val.tlackId1 >= 1 && val.trackId1 < 10) && (val.trackId2 >= 1 && val.trackId2 < 10)
-      && (val.trackId3 >= 1 && val.trackId3 < 10)) {
+  checkFormValidity(val) {
+    if((val.trackId1 >= 1 && val.trackId1 < 10) && (val.trackId2 >= 1 && val.trackId2 < 10) && (val.trackId3 >= 1 && val.trackId3 < 10)) {
+      console.log("true");
       this.isFormValid = true;
     }
   }
-  successMsg(val:any){
+  successMsg(val){
     this.alertNotCreated= '';
     this.alertCreated=`Success: <i>${val.createMixName}</i> was Created`;
   }
-  failureMsg(val:any){
+  failureMsg(val){
     this.alertCreated='';
     this.alertNotCreated=`Error: <i>${val.createMixName}</i> not Created`;
   }
