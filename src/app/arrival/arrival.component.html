@@ -14,8 +14,9 @@
     </ul>
   </div>
   <div class="col-md-3 randomTracksWrapper">
-    <h5 *ngIf="isSelectedDefined"><span class="star">*</span>{{selectedTrack.creator}}</h5><h4>RANDOM_TRACKS</h4>
+    <div><h5 *ngIf="isSelectedDefined"><span class="star">*</span>{{selectedTrack.creator}}</h5><h4>RANDOM_TRACKS</h4></div>
       <img *ngIf="isSelectedDefined" [src]="selectedTrack.img_src" class="creator">
+    <div class="arrivalPlayer"></div>
     <ul>
       <li  *ngFor="let track of randomTracks" class="randomTracks">
         <p>

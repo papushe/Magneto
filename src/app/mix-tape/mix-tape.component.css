@@ -128,3 +128,10 @@ ul{
   color: #00ffe9;
   background: none;
 }
+.hey{
+  color: red;
+  font-size: 20px;
+}
+.hey > span{
+  font-size: 40px;
+}

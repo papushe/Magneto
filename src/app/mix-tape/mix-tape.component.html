@@ -48,12 +48,17 @@
         <p *ngIf="selectedTracks" class="description">{{selectedTracks[randomNumber].description}}</p>
       </div>
     </div>
+
     <youtube-player hidden
                     *ngIf="currentPlayedTrack"
                     [videoId]="currentPlayedTrack.id"
                     (ready)="currentPlayedTrack.savePlayer($event)"
                     (change)="currentPlayedTrack.onStateChange($event)">
     </youtube-player>
+  </div>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="hey col-md-6"><span>HEY</span>__collect your favorite tracks&artist for update</div>
   </div>
 </div>
 <div class="col-md-2">

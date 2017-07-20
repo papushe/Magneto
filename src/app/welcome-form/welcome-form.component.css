@@ -127,5 +127,17 @@ input[type=submit]:disabled{
   background: url("../../assets/trackPlayer.png") no-repeat;
   height: 75px;
   width: 354px;
-  margin-left: 15px;
+  margin-left: 155px;
+}
+.forName{
+  padding-left: 25px;
+}
+.forEmail{
+  padding-left: 67px;
+}
+.forPassword{
+  padding-left: 35px;
+}
+.forMotherLand{
+  padding-left: 13px;
 }
