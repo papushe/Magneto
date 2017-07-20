@@ -135,3 +135,8 @@ ul{
 .hey > span{
   font-size: 40px;
 }
+.volume{
+  background: url("../../assets/volume.png") no-repeat;
+  width: 43px;
+  height: 43px;
+}
