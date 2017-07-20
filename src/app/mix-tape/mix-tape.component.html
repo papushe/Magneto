@@ -40,14 +40,7 @@
           </li>
       </ul>
     </div>
-    <div class="col-md-5">
-      <div class="col-md-6">
-        <img *ngIf="selectedTracks" [src]="selectedTracks[0].img_src">
-      </div>
-      <div class="col-md-6">
-        <p *ngIf="selectedTracks" class="description">{{selectedTracks[0].description}}</p>
-      </div>
-    </div>
+    <div class="col-md-5"></div>
     <youtube-player hidden
                     *ngIf="currentPlayedTrack"
                     [videoId]="currentPlayedTrack.id"
@@ -71,3 +64,5 @@
     </li>
   </ul>
 </div>
+<p class="error" *ngIf="isErrorOccurred">Server is too busy, please try later.</p>
+<iframe *ngIf="isErrorOccurred" src="https://giphy.com/embed/sS8YbjrTzu4KI" width="480" height="319" frameBorder="0" class="giphy-embed"></iframe>

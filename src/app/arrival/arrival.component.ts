@@ -20,18 +20,28 @@ export class ArrivalComponent implements OnInit {
   ngOnInit() {
     this.apiService.getAllMixes()
       .then((mixes: Mix[]) => {
-        this.allMixes = mixes;
-        this.isErrorOccurred = false;
+        if(mixes.constructor.name === 'Response') {
+          this.isErrorOccurred = true;
+        }
+        else{
+          this.allMixes = mixes;
+          this.isErrorOccurred = false;
+        }
     }).catch(err => {
       console.log(`error when trying to connect to server ${err}`);
       this.isErrorOccurred = true;
     });
     this.apiService.getRandomTracks(7)
       .then((tracks: Track[]) => {
-        this.randomTracks = tracks;
-        this.selectedTrack = this.randomTracks[0];
-        this.isSelectedDefined = true;
-        this.isErrorOccurred = false;
+        if(tracks.constructor.name === 'Response') {
+          this.isErrorOccurred = true;
+        }
+        else {
+          this.randomTracks = tracks;
+          this.selectedTrack = this.randomTracks[0];
+          this.isSelectedDefined = true;
+          this.isErrorOccurred = false;
+        }
       }).catch(err => {
       console.log(`error when trying to connect to server ${err}`);
       this.isErrorOccurred = true;
@@ -39,5 +49,8 @@ export class ArrivalComponent implements OnInit {
   }
   onSelect(selectedMix: Mix) {
     this.apiService.selectedMix = selectedMix;
+  }
+  getTime(ms) {
+    return this.apiService.convertMillisecondsToDigitalClock(ms);
   }
 }

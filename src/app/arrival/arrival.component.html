@@ -6,7 +6,7 @@
         <img class="mixImg" [src]="mix.img_src">
           <p class="mixDetails">
             <span class="mixName">{{mix.mix_name | uppercase}}</span>
-            <span class="length">{{apiService.convertMillisecondsToDigitalClock(mix.length)}}</span>
+            <span class="length">{{getTime(mix.length)}}</span>
             <span class="mixBackground"></span>
           </p>
         </a>
@@ -19,7 +19,7 @@
     <ul>
       <li  *ngFor="let track of randomTracks" class="randomTracks">
         <p>
-          <span class="trackLength">{{apiService.convertMillisecondsToDigitalClock(track.length)}}</span>
+          <span class="trackLength">{{getTime(track.length)}}</span>
           <span class="trackCreator">{{track.creator}}</span>
           <span class="trackName">{{track.track_name}}</span>
         </p>
@@ -29,4 +29,5 @@
   <div class="col-md-1"></div>
 </div>
 <p class="error" *ngIf="isErrorOccurred">Server is too busy, please try later.</p>
+<iframe *ngIf="isErrorOccurred" src="https://giphy.com/embed/sS8YbjrTzu4KI" width="480" height="319" frameBorder="0" class="giphy-embed"></iframe>
 

@@ -20,8 +20,13 @@ export class ExploreComponent implements OnInit {
   ngOnInit() {
     this.apiService.getAllMixes()
       .then((mixes: Mix[]) => {
-        this.allMixes = mixes;
-        this.isErrorOccurred = false;
+        if(mixes.constructor.name === 'Response') {
+          this.isErrorOccurred = true;
+        }
+        else {
+          this.allMixes = mixes;
+          this.isErrorOccurred = false;
+        }
       }).catch((err => {
       console.log(`error when trying to connect to server ${err}`);
       this.isErrorOccurred = true;
@@ -51,7 +56,6 @@ export class ExploreComponent implements OnInit {
   onCreate(val){
 
     this.checkFormValidity(val);
-    console.log(this.isFormValid);
 
     if(this.isFormValid){
       this.createMix(val.createMixName,val.creator,val.trackId1,val.trackId2,val.trackId3);
