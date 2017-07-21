@@ -161,10 +161,19 @@ ul{
 }
 .plus{
   padding: 5px 10px;
-  background: #062171;
-  font-size: 40px;
+  font-size: 45px;
   color: red;
+  display: inline-block;
 }
-plus:hover {
+.plus:hover {
   text-decoration: none;
+}
+
+@keyframes plusAnimation {
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+.plus-flicker {
+  animation: plusAnimation 1.3s infinite;
 }
