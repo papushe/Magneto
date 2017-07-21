@@ -22,16 +22,16 @@ label{
   display: inline-block;
   width: 133px;
 }
-input[type=submit]:disabled{
-  background: white;
+input[type="submit"]:disabled{
+  background: darkgray;
   color: grey;
 }
 h2{
   color: red;
   margin-bottom: 36px;
 }
-input[type=submit]:disabled{
-  background: white;
+input[type="submit"]:disabled:hover{
+  background: darkgray;
   color: grey;
 }
 .launchingSubmit{
@@ -39,7 +39,9 @@ input[type=submit]:disabled{
 input[type="submit"]{
   background: red;
   width: 100px;
-  border:1px solid white;
+  border: 1px solid white;
+  margin-top: 10px;
+  opacity: 1;
 }
 input[type="submit"]:hover{
   background: red;
