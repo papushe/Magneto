@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Mix } from '../services/Mix';
 import { ApiService } from '../services/api.service';
+import {retry} from "rxjs/operator/retry";
 
 @Component({
   selector: 'app-explore',
@@ -13,6 +14,7 @@ export class ExploreComponent implements OnInit {
   alertCreated: string = '';
   alertNotCreated: string = '';
   isFormValid: boolean = false;
+  conflict: boolean = false;
   isErrorOccurred:boolean = false;
 
   constructor(private apiService: ApiService) { }
@@ -53,8 +55,8 @@ export class ExploreComponent implements OnInit {
       });
     this.ngOnInit();
   }
-  onCreate(val){
 
+  onCreate(val){
     this.checkFormValidity(val);
 
     if(this.isFormValid){
@@ -62,19 +64,33 @@ export class ExploreComponent implements OnInit {
       this.successMsg(val);
     }else {
       this.failureMsg(val);
+    } if(this.conflict){
+      this.conflictTrack(val);
     }
   }
+
   checkFormValidity(val) {
+    if(val.trackId1 === val.trackId2 || val.trackId1 === val.trackId3 || val.trackId2 === val.trackId3){
+      this.isFormValid = false;
+      this.conflict = true;
+      return;
+    }
     if((val.trackId1 >= 1 && val.trackId1 < 10) && (val.trackId2 >= 1 && val.trackId2 < 10) && (val.trackId3 >= 1 && val.trackId3 < 10)) {
+      this.conflict = false;
       this.isFormValid = true;
     }
   }
+
   successMsg(val){
     this.alertNotCreated= '';
     this.alertCreated=`Success: <i>${val.createMixName}</i> was Created`;
   }
   failureMsg(val){
     this.alertCreated='';
-    this.alertNotCreated=`Error: <i>${val.createMixName}</i> not Created`;
+    this.alertNotCreated=`Error: <i>${val.createMixName}</i> not Created, tracks must be from 1 to 9`;
+  }
+  conflictTrack(val){
+    this.alertCreated='';
+    this.alertNotCreated=`Error: <i>${val.createMixName}</i> not Created, You can't choose same Tracks`;
   }
 }
