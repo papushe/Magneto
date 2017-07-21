@@ -165,3 +165,6 @@ ul{
   font-size: 40px;
   color: red;
 }
+plus:hover {
+  text-decoration: none;
+}
