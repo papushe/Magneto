@@ -17,14 +17,11 @@ export class WelcomeFormComponent implements AfterViewInit {
   constructor() { }
   ngAfterViewInit() {}
   @HostListener('window:keydown', ['$event'])
-  handleKeyboardEvent() {
-    this.getRandomSound();
-    this.playSound();
-  }
-
   getRandomSound() {
-    let whichSound  = Math.floor(Math.random() * (8)) + 1;
-    this.src =  `${this.baseUrl}${whichSound}.mp3`;
+    let whichSound = Math.floor(Math.random() * (8)) + 1;
+    this.src = `${this.baseUrl}${whichSound}.mp3`;
+    this.playSound();
+
   }
 
   playSound() {
