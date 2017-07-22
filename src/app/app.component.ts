@@ -8,6 +8,6 @@ import { DOCUMENT } from '@angular/platform-browser';
 })
 export class AppComponent implements OnInit {
 
-  constructor (@Inject(DOCUMENT) private document: any) {}
+  constructor (@Inject(DOCUMENT) public document: any) {}
   ngOnInit() {}
 }

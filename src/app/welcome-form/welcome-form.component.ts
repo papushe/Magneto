@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild, Input, HostListener } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, Input, HostListener, ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-welcome-form',
@@ -9,19 +9,23 @@ import { Component, AfterViewInit, ViewChild, Input, HostListener } from '@angul
   }
 })
 export class WelcomeFormComponent implements AfterViewInit {
-  @Input() src: string;
   @ViewChild('player') player;
+  baseUrl:string;
+  host: string = window.location.hostname;
+  @Input() src;
 
-  baseUrl:string = '../../assets/sounds/';
+  constructor(private cdr: ChangeDetectorRef) {}
+  ngAfterViewInit() {
+    this.baseUrl = (this.host === 'localhost') ? `../../assets/sounds/` : `assets/sounds/`;
+    this.src = `${this.baseUrl}/1.mp3`; //init
+    this.cdr.detectChanges();
 
-  constructor() { }
-  ngAfterViewInit() {}
+  }
   @HostListener('window:keydown', ['$event'])
   getRandomSound() {
     let whichSound = Math.floor(Math.random() * (8)) + 1;
     this.src = `${this.baseUrl}${whichSound}.mp3`;
     this.playSound();
-
   }
 
   playSound() {
