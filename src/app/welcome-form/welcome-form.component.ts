@@ -17,7 +17,7 @@ export class WelcomeFormComponent implements AfterViewInit {
   constructor(private cdr: ChangeDetectorRef) {}
   ngAfterViewInit() {
     this.baseUrl = (this.host === 'localhost') ? `../../assets/sounds/` : `assets/sounds/`;
-    this.src = `${this.baseUrl}/1.mp3`; //init
+    this.src = `${this.baseUrl}1.mp3`; //init
     this.cdr.detectChanges();
 
   }
